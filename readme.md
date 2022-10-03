@@ -70,6 +70,22 @@ Skizzen von Hand zeichnen, da ich mit Figma noch nicht so versiert bin:
 
 **KW40**
 
+Wie soll mein `win4life` aussehen ?
+*  Header & Footer von Swisslos übernehmen.
+    *  die Links müssen nirgends hinführen, aber ein Hamburger-Menu für die Mobil-Ansicht ist notwendig.
+*   Kauf von `win4life` soll online möglich sein.
+*   Guthaben soll angezeigt werden.
+    *   wird ein los gekauft, soll es die 5Fr von dem Guthaben reduzieren
+
+Wie baue ich meine Diplomarbeit ?
+
+1. `Gewinnzahlen` und `Ihre Zahlen` erstellen und zum Laufen bringen.
+    *   für beides soll ein Objekt-Array erstellt werden.
+
+2. Gewinn soll beim Guthaben addiert werden. Kauf soll subdrahiert werden.
+
+3. Rückseite des Loses soll durch einen Klick auf `Spielregeln` ersichtlich sein.
+
 **KW41**
 
 **KW42**

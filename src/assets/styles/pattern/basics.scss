@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Open+Sans:ital,wght@0,300;0,500;1,300;1,500&display=swap');
+
 *,
 *::before,
 *::after {
@@ -7,7 +9,85 @@
 };
 
 main {
-    height: 100vh;
+    background-color: purple;
     width: 100vw;
-    font-size: 30px;
+    height: 100vh;
+    padding-top: 100px;
+    
+    font-family: 'Open Sans', sans-serif;
+    color: white;
 }
+
+.gambling {
+    display: flex;
+    flex-direction: column;
+
+    width: 80vw;
+    margin: 0 auto;
+    
+    &__heading {
+        margin-bottom: 50px;
+
+        font-family: 'Bungee Spice', sans-serif;
+        font-size: 80px;
+        align-self: flex-end;
+        
+    };
+    &__table {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        
+    };
+};
+  
+  .win-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: black;
+    grid-gap: 1px;
+    
+    height: 100px;
+    width: 50%;
+    margin-bottom: 25px;
+    
+    border: 3px solid black;
+    border-radius: 25px;
+    overflow: hidden;
+
+    &__number {
+        background-color: #C8C6C6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 18px;
+    };
+  };
+  
+  
+  .game-section {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    background-color: black;
+    grid-gap: 1px;
+    
+    height: 400px;
+    width: 100%;
+    
+    border: 3px solid black;
+    border-radius: 30px;
+    overflow: hidden;
+
+    &__item {
+        background-color: #C8C6C6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 18px;
+    };
+  };
