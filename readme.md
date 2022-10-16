@@ -88,6 +88,12 @@ Wie baue ich meine Diplomarbeit ?
 
 **KW41**
 
+- [X] `Gwinnzahlen` und `Ihre Zahlen` mit Funktion erstellen
+- [X] Prototype für `count` erstellt, damit er herausfiltert, wieviele `wins` es bereits bei Ihren Zahlen ausgibt. siehe Literaturverzeichnis
+
+* Was muss noch gelöst werden ?
+    * wie schaffe ich es, 1x oder 2x die 21 für WIN anzuzeigen. Dieses Problem werde ich jedoch erst am Schluss de Diplomarbeit angehen. Dafür kann die aktuelle Funktion einfach noch verfeinert werden.
+
 **KW42**
 
 **KW43**
@@ -107,6 +113,8 @@ Wie baue ich meine Diplomarbeit ?
 ---
 
 ### **Literaturverzeichnis**
+
+[Prototype Count](https://dmitripavlutin.com/javascript-array-contains-value/)
 
 ---
 
