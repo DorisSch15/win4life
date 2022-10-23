@@ -1,10 +1,9 @@
 import { gameNumbers } from './numbers.js';
 import { wins } from './wins.js';
 
-let winNumbers = [];
-let gambleNumbers = [];
+export let winNumbers = [];
+export let gambleNumbers = [];
 
-console.table(wins);
 
 function createNewCard(){
 

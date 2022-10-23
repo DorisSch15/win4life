@@ -1,0 +1,36 @@
+.navs {
+    background-color: $bg-color-navs;
+
+// @include media("tablet") {
+// @include media("desktop") {
+
+    &__links {
+
+        &-item {
+
+        };
+    };
+
+};
+
+.nave {
+
+    &__aboutswisslos,
+    &__goodpurpose,
+    &__gamerprotection,
+    &__contact,
+    &__media,
+    &__games,
+    &__winners,
+    &__stayinformed {
+        &-title {
+
+        };
+        &-list {
+
+            &-item {
+
+            };
+        };
+    };
+};

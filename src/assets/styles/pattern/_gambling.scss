@@ -1,45 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Open+Sans:ital,wght@0,300;0,500;1,300;1,500&display=swap');
-
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-};
-
-main {
-    background-color: purple;
-    width: 100vw;
-    height: 100vh;
-    padding-top: 100px;
-    
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-}
+@import "./fonts";
 
 .gambling {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    
     display: flex;
     flex-direction: column;
 
-    width: 80vw;
-    margin: 0 auto;
+    background-color: yellow;
+    border: 1px solid black;
+    border-radius: 25px;
     
     &__heading {
         margin-bottom: 50px;
         
         font-family: 'Bungee Spice', sans-serif;
-        font-size: 80px;
+        font-size: 40px;
         align-self: flex-end;
+
+        @include media("tablet") {
+            font-size: 60px;
+        };
+        @include media("desktop") {
+            font-size: 80px;
+        };
         
     };
     &__table {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        font-size: 18px;
-
-        background-color: green;
         
     };
 };
@@ -61,6 +52,12 @@ main {
     overflow: hidden;
         
     color: black;
+
+    @include media("tablet") {
+    };
+
+    @include media("desktop") {
+    };
     
     &__title {
         grid-area: header;
@@ -89,32 +86,86 @@ main {
         align-items: center;
         justify-content: center;
 
+        &-int {
+            // @include numberFont;
+            
+
+            // @include media("tablet") {
+            // };
     
+            // @include media("desktop") {
+            // };    
+        };
+
+        &-string {
+
+
+            @include media("tablet") {
+            };
+    
+            @include media("desktop") {
+            };    
+        };  
     };
   };
   
   
   .game-section {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     background-color: black;
     grid-gap: 1px;
     
-    height: 400px;
+    height: 100%;
     width: 100%;
     
     border: 3px solid black;
     border-radius: 30px;
     overflow: hidden;
 
+    @include media("tablet") {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    
+    };
+
+    @include media("desktop") {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, 1fr);    
+    };
+
+
     &__item {
+
+        padding: 6%;
         background-color: #C8C6C6;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         color: black;
-        font-size: 18px;
+
+        @include media("tablet") {
+        };
+
+        @include media("desktop") {
+        };
+
+        &__number-int {
+            @include fontSize(30px, 700);  
+        };
+
+        &__number-string {
+            @include fontSize(10px, 400);
+        };
+
+        &__win-int {
+            @include fontSize(20px, 400);
+        };
+
+        &__win-string {
+            @include fontSize(10px, 400); 
+        };
     };
   };
