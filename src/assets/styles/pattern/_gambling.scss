@@ -1,7 +1,7 @@
 @import "./fonts";
 
 .gambling {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     padding: 20px;
     
@@ -37,26 +37,29 @@
 
   .win-section {
     height: 140px;
-    width: 50%;
+    width: 100%;
     margin-bottom: 25px;
+
+    background-color: #C8C6C6;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
     grid-template-areas:
     "header header header header"
     "table table table table";
-        
+    
     border: 3px solid black;
     border-radius: 25px;
     overflow: hidden;
-        
-    color: black;
 
     @include media("tablet") {
+        width: 67%;
     };
 
     @include media("desktop") {
+        width: 50%;
+    
     };
     
     &__title {
@@ -64,22 +67,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-        background-color: #C8C6C6;
     };
 
     &__table {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-    
         justify-content: space-around;
         grid-area: table;
-        grid-gap: 1px;
         background-color: black;
-
-    }
+        grid-gap: 1px;
+    };
     
     &__number {
+        padding: 5px;
         background-color: #C8C6C6;
         display: flex;
         flex-direction: column;
@@ -87,24 +87,11 @@
         justify-content: center;
 
         &-int {
-            // @include numberFont;
-            
-
-            // @include media("tablet") {
-            // };
-    
-            // @include media("desktop") {
-            // };    
+            @include fontSize(30px, 700);    
         };
 
         &-string {
-
-
-            @include media("tablet") {
-            };
-    
-            @include media("desktop") {
-            };    
+            @include fontSize(10px, 400);    
         };  
     };
   };
@@ -137,13 +124,14 @@
 
 
     &__item {
-
-        padding: 6%;
-        background-color: #C8C6C6;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        padding: 6%;
+
+        background-color: #C8C6C6;
         color: black;
 
         @include media("tablet") {
