@@ -3,7 +3,6 @@ import { wins } from './wins.js';
 
 export let winNumbers = [];
 export let gambleNumbers = [];
-
 export function letsGamble() {
     createNewWinNumbers();
     createNewGambleNumbers();

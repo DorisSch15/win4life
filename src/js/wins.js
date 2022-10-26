@@ -24,15 +24,15 @@ export let wins = [
         currency: "Fr",
         text: "fünfhundert"
     }, {
-        win: "1000",
+        win: "1'000",
         currency: "Fr",
         text: "tausend"
     }, {
-        win: "5000",
+        win: "5'000",
         currency: "Fr",
         text: "fünftausend"
     }, {
-        win: "10000",
+        win: "10'000",
         currency: "Fr",
         text: "zehntausend"
     }, {
