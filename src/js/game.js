@@ -4,12 +4,12 @@ import { wins } from './wins.js';
 export let winNumbers = [];
 export let gambleNumbers = [];
 
-
-function createNewCard(){
-
+export function letsGamble() {
+    createNewWinNumbers();
+    createNewGambleNumbers();
 };
 
-function createNewWinNumbers(){
+function createNewWinNumbers() {
     winNumbers = [];
     for(let i = 0; i < 4; i++){
         let winNumber = getRandomWinNumber(19);
@@ -23,7 +23,6 @@ function createNewWinNumbers(){
     };
 };
 
-
 function createNewGambleNumbers() {
     gambleNumbers = [];
     
@@ -31,8 +30,11 @@ function createNewGambleNumbers() {
         let gambleNumber = getRandomWinNumber(20.44);
         let win;
 
+        function multipleExisting(number){
+            number.int === gambleNumber.int;
+        }
         
-        if(gambleNumber !== gameNumbers[20] && gambleNumbers.includes(gambleNumber)){
+        if(gambleNumber !== gameNumbers[20] && gambleNumbers.some(multipleExisting)){
             i--;
             continue;
         }
@@ -46,6 +48,7 @@ function createNewGambleNumbers() {
                 win = getRandomWin(wins.length - 2);
             }
         };
+        
         gambleNumbers.push({
             int: gambleNumber.int,
             string: gambleNumber.string,
@@ -53,21 +56,18 @@ function createNewGambleNumbers() {
             currency: win.currency,
             text: win.text
         });
-    };
-
         
-
-        console.table(gambleNumbers);
+        console.log(`die gamble nr ist` + gambleNumber.int)
+    };
+    console.table(gambleNumbers);
 };
-createNewGambleNumbers();
-// 
+
 function getRandomWinNumber(max){
     let rn = getRandomNumber(max, gameNumbers);
     return gameNumbers[rn];
-
 };
 
-function getRandomWin(max){
+function getRandomWin(max) {
     let rn = getRandomNumber(max, wins);
     return wins[rn];
 };
@@ -76,12 +76,12 @@ function getRandomNumber(max, array) {
     return Math.round(Math.random() * max);
 };
 
-Array.prototype.count = function(item){ 
+Array.prototype.count = function(item) { 
     let appearance = 0; //This is the default value
     this.forEach(index => {
         if (index === item)
             appearance++
     });
     return appearance;
-}
+};
 
