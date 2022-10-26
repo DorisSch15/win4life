@@ -95,8 +95,56 @@ Wie baue ich meine Diplomarbeit ?
     * wie schaffe ich es, 1x oder 2x die 21 für WIN anzuzeigen. Dieses Problem werde ich jedoch erst am Schluss de Diplomarbeit angehen. Dafür kann die aktuelle Funktion einfach noch verfeinert werden.
 
 **KW42**
+- [X] Angefangen, am HTML und CSS arbeiten. "Mobile-First"-Prinzip, was ich für den Start des Projekts ignoriert habe. Um mit den Basics des JavaScript-Codes zu beginnen.
+
 
 **KW43**
+
+- [X] `letsGamble`-Funktion im game.js erstellt und `render`-Funktion für die Ansicht im index.js erstellt.
+- [ ] if-Bedingung für das Prüfen der `gambleNumber` im gambleNumbers mit `.includes()` hat nicht funktioniert.
+
+```ruby
+function createNewGambleNumbers() {
+    gambleNumbers = [];
+    
+    for(let i = 0; i < 12; i++){
+        let gambleNumber = getRandomWinNumber(20.44);
+        let win;
+        
+        if(gambleNumber !== gameNumbers[20] && gambleNumbers.includes(gambleNumber)){
+            i--;
+            continue;
+        }
+        
+        if(gambleNumber === gameNumbers[20]){
+            {
+                win = wins[9];
+            }
+        } else {
+            {
+                win = getRandomWin(wins.length - 2);
+            }
+        };
+        
+        gambleNumbers.push({
+            int: gambleNumber.int,
+            string: gambleNumber.string,
+            win: win.win,
+            currency: win.currency,
+            text: win.text
+        });
+    };
+};
+```
+
+* dies vermutlich, da in gambleNumbers ausser `int` und `string `noch `win`, `currency` und `text` vorhanden sind. Aber im gambleNumbers nur `int` und `string`.
+
+* bei StackOverflow eine Lösung mit `.some()` gefunden. werde diesen Ansatz ausprobieren und hoffen, dass es funktioniert. Link dazu im Literaturverzeichnis.
+
+MDN:
+>The `some()` method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
+
+
 
 **KW44**
 
@@ -115,6 +163,8 @@ Wie baue ich meine Diplomarbeit ?
 ### **Literaturverzeichnis**
 
 [Prototype Count](https://dmitripavlutin.com/javascript-array-contains-value/)
+
+[.some()](https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e)
 
 ---
 
