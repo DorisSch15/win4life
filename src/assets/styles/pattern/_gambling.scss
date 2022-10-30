@@ -94,14 +94,14 @@
         
         &-front {
             z-index: 10;
-            background-color: green;
+            background-color: #C8C6C6;
+
         };
 
         &-back {
             z-index: 5;
             padding: 5px;
-            background-color: red;
-            // background-color: #C8C6C6;
+            background-color: #C8C6C6;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -172,7 +172,7 @@
         
         &-front {
             z-index: 10;
-            background-color: green;
+            background-color: #C8C6C6;
         };
         
         &-back {
@@ -183,7 +183,8 @@
             align-items: center;
             justify-content: center;
 
-            background-color: red;
+            background-color: #C8C6C6;
+
 
             &__number-int {
                 @include fontSize(3em, 700);  
