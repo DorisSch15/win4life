@@ -1,7 +1,7 @@
 @import "./fonts";
 
 .gambling {
-    width: 80%;
+    width: max-content;
     height: 100%;
     margin: 0 auto;
     padding: 20px;
@@ -12,6 +12,14 @@
     background-color: yellow;
     border: 1px solid black;
     border-radius: 25px;
+
+    // @include media("tablet") {
+    //     width: 80%;
+    // }
+
+    // @include media("desktop") {
+    //     width: 80%;
+    // }
     
     &__heading {
         margin-bottom: 50px;
@@ -29,6 +37,8 @@
         
     };
     &__table {
+        width: max-content;
+        background-color: green;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -130,36 +140,31 @@
   
 .game-section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat(6, 200px);
     background-color: black;
-    grid-gap: 1px;
+    gap: 1px;
 
-    width: 100%;
-    // height: 500px;
-
+    width: max-content;
 
     border: 3px solid black;
     border-radius: 30px;
     overflow: hidden;
 
     @include media("tablet") {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-
+        grid-template-columns: repeat(4, 175px);
+        grid-template-rows: repeat(3, 175px);   
     };
 
     @include media("desktop") {
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(2, 1fr);    
+        grid-template-columns: repeat(6, 200px);
+        grid-template-rows: repeat(2, 200px); 
     };
 
 
     &__item {
         position: relative;
-
-        height: 200px;
-        
+       
         background-color: #C8C6C6;
         color: black;
         
@@ -192,7 +197,7 @@
         
             &__number-string,
             &__win-string {
-                display: none;
+                // display: none;
 
                 @include media("tablet") {
                     display: block;
@@ -211,18 +216,30 @@
     };
 };
 
-.game-information {
+.gambling-information {
     display: flex;
     flex-direction: column;
-    padding: 20px;
 
     &__text {
+        margin-top: 5px;
+        font-size: 6px;
+
+        text-align: center;
+
+        @include media("tablet") {
+            font-size: 8px;
+        };
+
+        @include media("desktop") {
+            font-size: 10px;
+        };
 
     };
     &__gambling-rules {
-        font-weight: 700;
+        width: 100%;
         margin-top: 20px;
         padding: 5px;
+        border: 1px solid black;
         border-radius: 10px;
     };
 };
