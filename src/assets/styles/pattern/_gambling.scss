@@ -1,39 +1,40 @@
 @import "./fonts";
 
 .gambling {
-    width: max-content;
+    width: 95%;
     height: 100%;
     margin: 0 auto;
     padding: 20px;
     
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     background-color: yellow;
     border: 1px solid black;
     border-radius: 25px;
 
-    // @include media("tablet") {
-    //     width: 80%;
-    // }
+    @include media("tablet") {
+        width: max-content;
+    }
 
-    // @include media("desktop") {
-    //     width: 80%;
-    // }
+    @include media("desktop") {
+        width: max-content;
+    }
     
     &__heading {
         margin-bottom: 50px;
         
         font-family: 'Bungee Spice', sans-serif;
-        font-size: 40px;
-        align-self: flex-end;
+        font-size: 80px;
+        // align-self: flex-end;
 
-        @include media("tablet") {
-            font-size: 60px;
-        };
-        @include media("desktop") {
-            font-size: 80px;
-        };
+        // @include media("tablet") {
+        //     font-size: 60px;
+        // };
+        // @include media("desktop") {
+        //     font-size: 80px;
+        // };
         
     };
     &__table {
@@ -197,7 +198,7 @@
         
             &__number-string,
             &__win-string {
-                // display: none;
+                display: none;
 
                 @include media("tablet") {
                     display: block;
