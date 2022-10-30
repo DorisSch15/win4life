@@ -37,7 +37,7 @@
 };
 
 .win-section {
-    height: 140px;
+    height: 200px;
     width: 100%;
     margin-bottom: 25px;
 
@@ -67,6 +67,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @include titleSize(1.5em, 700);    
     };
 
     &__table {
@@ -106,11 +108,11 @@
             justify-content: center;
             
             &-int {
-                @include fontSize(30px, 700);    
+                @include fontSize(2em, 700);    
             };
             
             &-string {
-                @include fontSize(10px, 400);    
+                @include fontSize(1em, 400);    
             };  
         };
     };
@@ -124,8 +126,9 @@
     background-color: black;
     grid-gap: 1px;
 
-    height: 100%; // prüfen
     width: 100%;
+    // height: 500px;
+
 
     border: 3px solid black;
     border-radius: 30px;
@@ -133,7 +136,7 @@
 
     @include media("tablet") {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 400px);
+        grid-template-rows: repeat(4, 1fr);
 
     };
 
@@ -145,7 +148,9 @@
 
     &__item {
         position: relative;
-                
+
+        height: 200px;
+        
         background-color: #C8C6C6;
         color: black;
         
@@ -163,7 +168,7 @@
         
         &-back {
             z-index: 5;
-
+            
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -172,19 +177,19 @@
             background-color: red;
 
             &__number-int {
-                @include fontSize(30px, 700);  
+                @include fontSize(2em, 700);  
             };
         
             &__number-string {
-                @include fontSize(10px, 400);
+                @include fontSize(1em, 400);
             };
         
             &__win-int {
-                @include fontSize(20px, 400);
+                @include fontSize(1.5em, 400);
             };
         
             &__win-string {
-                @include fontSize(10px, 400); 
+                @include fontSize(1em, 400); 
             };
         };
     };

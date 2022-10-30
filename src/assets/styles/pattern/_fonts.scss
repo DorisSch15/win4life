@@ -7,11 +7,15 @@
 @mixin fontSize($size, $weight) {
     font-size: $size;
     font-weight: $weight;
+};
+
+@mixin titleSize($size, $weight) {
+    font-size: $size;
+    font-weight: $weight;
 
     @include media("tablet") {
         font-size: $size * 1.2;
         font-weight: $weight;
-
     };
 
     @include media("desktop") {
