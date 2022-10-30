@@ -68,7 +68,7 @@
         justify-content: center;
         align-items: center;
 
-        @include titleSize(1.5em, 700);    
+        @include titleSize(2.5em, 700);    
     };
 
     &__table {
@@ -108,11 +108,20 @@
             justify-content: center;
             
             &-int {
-                @include fontSize(2em, 700);    
+                @include fontSize(3em, 700);    
             };
             
             &-string {
-                @include fontSize(1em, 400);    
+                display: none;
+
+                @include media("tablet") {
+                    display: block;
+                    @include fontSize(1em, 400);    
+                };
+
+                @include media("desktop") {
+                    @include fontSize(1em, 400);  
+                };  
             };  
         };
     };
@@ -177,20 +186,26 @@
             background-color: red;
 
             &__number-int {
-                @include fontSize(2em, 700);  
+                @include fontSize(3em, 700);  
             };
         
-            &__number-string {
-                @include fontSize(1em, 400);
+            &__number-string,
+            &__win-string {
+                display: none;
+
+                @include media("tablet") {
+                    display: block;
+                    @include fontSize(1em, 400);    
+                };
+
+                @include media("desktop") {
+                    @include fontSize(1em, 400);  
+                };  
             };
         
             &__win-int {
-                @include fontSize(1.5em, 400);
-            };
-        
-            &__win-string {
-                @include fontSize(1em, 400); 
-            };
+                @include fontSize(2em, 400);
+            };    
         };
     };
 };

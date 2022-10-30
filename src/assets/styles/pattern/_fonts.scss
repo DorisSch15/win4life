@@ -14,12 +14,12 @@
     font-weight: $weight;
 
     @include media("tablet") {
-        font-size: $size * 1.2;
+        font-size: calc($size / 1.2);
         font-weight: $weight;
     };
 
     @include media("desktop") {
-        font-size: $size * 1.4;
+        font-size: calc($size / 1.4);
         font-weight: $weight;
     };
 };
