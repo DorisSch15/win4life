@@ -26,19 +26,19 @@
         margin-bottom: 50px;
         
         font-family: 'Bungee Spice', sans-serif;
-        font-size: 80px;
-        // align-self: flex-end;
-
-        // @include media("tablet") {
-        //     font-size: 60px;
-        // };
-        // @include media("desktop") {
-        //     font-size: 80px;
-        // };
+        font-size: 40px;
+        
+        @include media("tablet") {
+            font-size: 60px;
+            align-self: flex-end;
+        };
+        @include media("desktop") {
+            font-size: 80px;
+        };
         
     };
     &__table {
-        width: max-content;
+        width: 100%;
         background-color: green;
         display: flex;
         flex-direction: column;
@@ -48,7 +48,7 @@
 };
 
 .win-section {
-    height: 200px;
+    height: 100px;
     width: 100%;
     margin-bottom: 25px;
 
@@ -67,10 +67,12 @@
 
     @include media("tablet") {
         width: 67%;
+        height: 200px;
     };
 
     @include media("desktop") {
         width: 50%;
+        height: 200px;
     };
 
     &__title {
@@ -79,7 +81,15 @@
         justify-content: center;
         align-items: center;
 
-        @include titleSize(2.5em, 700);    
+        @include titleSize(1.5em, 700); 
+        
+        @include media("tablet") {
+            @include titleSize(2em, 700);
+        };
+
+        @include media("desktop") {
+            @include titleSize(2.5em, 700);
+        };   
     };
 
     &__table {
@@ -119,7 +129,7 @@
             justify-content: center;
             
             &-int {
-                @include fontSize(3em, 700);    
+                @include fontSize(2em, 700);    
             };
             
             &-string {
@@ -141,12 +151,12 @@
   
 .game-section {
     display: grid;
-    grid-template-columns: repeat(4, 150px);
-    grid-template-rows: repeat(3, 150px);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 100px);
     background-color: black;
     gap: 1px;
 
-    width: max-content;
+    width: 100%;
 
     border: 3px solid black;
     border-radius: 30px;
@@ -193,7 +203,7 @@
 
 
             &__number-int {
-                @include fontSize(3em, 700);  
+                @include fontSize(2em, 700);  
             };
         
             &__number-string,
@@ -206,12 +216,23 @@
                 };
 
                 @include media("desktop") {
+                    display: block;
                     @include fontSize(1em, 400);  
                 };  
             };
         
             &__win-int {
-                @include fontSize(2em, 400);
+                @include fontSize(1.5em, 400);
+
+                @include media("tablet") {
+                    @include fontSize(2em, 400);
+                };
+
+                @include media("desktop") {
+                    @include fontSize(2em, 400);
+                };
+    
+
             };    
         };
     };
