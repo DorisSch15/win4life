@@ -3,6 +3,7 @@ import { wins } from './wins.js';
 
 export let winNumbers = [];
 export let gambleNumbers = [];
+
 export function letsGamble() {
     createNewWinNumbers();
     createNewGambleNumbers();
@@ -13,12 +14,16 @@ function createNewWinNumbers() {
     for(let i = 0; i < 4; i++){
         let winNumber = getRandomWinNumber(19);
 
-        if(winNumbers.includes(winNumber)){
+        if(winNumbers.some(e => e.int === winNumber.int)){
             i--;
             continue;
         }
 
-        winNumbers.push(winNumber);
+        winNumbers.push({
+            int: winNumber.int,
+            string: winNumber.string,
+            scratched: false
+        });
     };
 };
 
@@ -26,25 +31,24 @@ function createNewGambleNumbers() {
     gambleNumbers = [];
     
     for(let i = 0; i < 12; i++){
-        let gambleNumber = getRandomWinNumber(20.44);
+        let gambleNumber = getRandomWinNumber(20.44); // 20.1 nehmen ? damit win nicht immer wieder 3x vorkommt ?
         let win;
-
-        function multipleExisting(number){
-            number.int === gambleNumber.int;
-        }
         
-        if(gambleNumber !== gameNumbers[20] && gambleNumbers.some(multipleExisting)){
+        // überprüfen ob Zahl schon vorhanden, ausser id:20(WIN) - wenn vorhanden dann nochmals neu "generieren"
+        if(gambleNumber !== gameNumbers[20] && gambleNumbers.some(e => e.int === gambleNumber.int)){
             i--;
             continue;
         }
         
+        // wenn id20(WIN) muss immer wins[9] verwendet werden, Jahresgewinn !
         if(gambleNumber === gameNumbers[20]){
             {
+                gambleNumber.int = gambleNumber.string.toUpperCase();
                 win = wins[9];
             }
         } else {
             {
-                win = getRandomWin(wins.length - 2);
+                win = getRandomWin(wins.length - 2); // damit Win nicht dabei ist
             }
         };
         
@@ -53,12 +57,11 @@ function createNewGambleNumbers() {
             string: gambleNumber.string,
             win: win.win,
             currency: win.currency,
-            text: win.text
+            text: win.text,
+            scratched: false,
         });
-        
-        console.log(`die gamble nr ist` + gambleNumber.int)
+
     };
-    console.table(gambleNumbers);
 };
 
 function getRandomWinNumber(max){
