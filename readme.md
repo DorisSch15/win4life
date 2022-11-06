@@ -144,12 +144,17 @@ function createNewGambleNumbers() {
 MDN:
 >The `some()` method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
 
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
 **KW44**
+- [X] bei den beiden Objekten jeweils `scratched` hinzugefügt, damit später hand dessen geprüft werden kann, ob alle Felder aufgerubbelt wurden und der Gewinn mitgeteilt werden kann. Nicht, dass der Gewinn bereits nach dem ersten frei gelegten Feld den Gewinn mitteilt !
+
+- [X] bis jetzt hatte ich bei jedem `scratchen` Gewinne mit hohen Beträgen. Dies wollte ich verhindern. Im Google mit der Suche nach `math random with less chance for higher numbers js` bin ich auf StackOverflow auf eine Lösung mit `math.pow()`
+gestossen. Siehe Literaturverzeichnis.
+
+![math.pow()](./src/assets/images/pow-curve.png)
+
+Je höher der Exponent ist, desto kleiner wird die Wahrscheinlichkeit einer höheren Zahl.
+
+- [X] Anfangs hatte ich die Zahlen als String angegeben. Um den Gewinn jedoch zusammen zu zählen, müssen die Gewinne `Integer` sein. Dies habe ich angepasst. Nun hatte ich jedoch Probleme mit dem `20Jahre`-Gewinn. Da dies ein `String` ist. Dafür habe ich nun die Funktion `checkString()` erstellt.
 
 **KW45**
 
@@ -168,6 +173,12 @@ MDN:
 [Prototype Count](https://dmitripavlutin.com/javascript-array-contains-value/)
 
 [.some()](https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e)
+
+[2 Arrays prüfen](https://stackoverflow.com/questions/9639065/a-for-loop-that-compares-two-arrays-looking-for-matching-values)
+
+[Dialog-Feld verwenden für Info zu Gewinn](https://www.youtube.com/watch?v=TAB_v6yBXIE)
+
+[math.pow()](https://stackoverflow.com/questions/13758031/generate-random-numbers-with-less-probabilities-of-bigger-numbers)
 
 ---
 
