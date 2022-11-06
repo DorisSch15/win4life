@@ -1,0 +1,32 @@
+.win-dialog {
+    background: white;
+    padding: 30px;
+    position: fixed;
+    top: 20%;
+    margin: 0 auto;
+
+    width: 80%;
+    
+    @include media("tablet") {
+        width: 60%;
+    };
+    
+    @include media("desktop") {
+        width: 40%;
+    };  
+
+
+    &::backdrop {
+        background: rgb(0 0 0 / .6);
+    }
+
+    &__title {
+
+    };
+
+    &__text {
+        padding-top: 5px;
+
+    };
+
+};
