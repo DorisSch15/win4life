@@ -1,7 +1,7 @@
 @import "./fonts";
 
 .gambling {
-    width: 95%;
+    width: max-content;
     height: 100%;
     margin: 0 auto;
     padding: 20px;
@@ -10,17 +10,17 @@
     flex-direction: column;
     align-items: center;
 
-    background-color: yellow;
+    background-color: rgb(42, 92, 94);
     border: 1px solid black;
     border-radius: 25px;
 
     @include media("tablet") {
         width: max-content;
-    }
+    };
 
     @include media("desktop") {
         width: max-content;
-    }
+    };
     
     &__heading {
         margin-bottom: 50px;
@@ -39,7 +39,6 @@
     };
     &__table {
         width: 100%;
-        background-color: green;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -117,6 +116,19 @@
             z-index: 10;
             background-color: #C8C6C6;
 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include fontSize(40px, 900);
+
+            @include media("tablet") {
+                @include fontSize(50px, 900);    
+            };
+
+            @include media("desktop") {
+                @include fontSize(50px, 900);  
+            };  
         };
 
         &-back {
@@ -189,6 +201,20 @@
         &-front {
             z-index: 10;
             background-color: #C8C6C6;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            @include fontSize(40px, 900);
+
+            @include media("tablet") {
+                @include fontSize(1em, 900);    
+            };
+
+            @include media("desktop") {
+                @include fontSize(60px, 900);  
+            };  
         };
         
         &-back {
@@ -231,8 +257,6 @@
                 @include media("desktop") {
                     @include fontSize(2em, 400);
                 };
-    
-
             };    
         };
     };

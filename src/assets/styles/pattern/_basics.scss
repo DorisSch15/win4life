@@ -1,5 +1,6 @@
 @import "./fonts";
 @import "./colors";
+@import "./mixins";
 
 *,
 *::before,
@@ -19,4 +20,48 @@ main {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: black;
-}
+};
+
+.footer {
+    height: 50px;
+
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    background: #e0e0e0;
+
+    &__wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include media("tablet") {
+            flex-direction: row;
+            align-items: space-evenly;
+        };
+    
+        @include media("desktop") {
+            flex-direction: row;
+            align-items: space-evenly;
+        };  
+    };
+
+    &__list {
+        BACKGROUND: RED;
+        display: flex;
+        flex-direction: column;
+
+        @include media("tablet") {
+            flex-direction: row;
+            align-items: space-evely;
+        };
+    
+        @include media("desktop") {
+            flex-direction: row;
+            align-items: space-evenly;
+        }; 
+
+    }
+};
