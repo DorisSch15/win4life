@@ -9,6 +9,8 @@ export function letsGamble() {
     createNewGambleNumbers();
 };
 
+// create WinNumbers
+
 function createNewWinNumbers() {
     winNumbers = [];
     for(let i = 0; i < 4; i++){
@@ -26,6 +28,8 @@ function createNewWinNumbers() {
         });
     };
 };
+
+// create gambleNumbers
 
 function createNewGambleNumbers() {
     gambleNumbers = [];
@@ -48,7 +52,7 @@ function createNewGambleNumbers() {
             }
         } else {
             {
-                win = getRandomWin(wins.length - 2); // damit Win nicht dabei ist
+                win = getRandomPrice(wins.length - 2); // damit Win nicht dabei ist
             }
         };
         
@@ -64,18 +68,16 @@ function createNewGambleNumbers() {
     };
 };
 
+// getRandomNumber
+
 function getRandomWinNumber(max){
-    let rn = getRandomNumber(max, gameNumbers);
+    let rn = Math.round(Math.random() * max);
     return gameNumbers[rn];
 };
 
-function getRandomWin(max) {
-    let rn = getRandomNumber(max, wins);
+function getRandomPrice(max) {
+    let rn = Math.round(Math.pow(Math.random(), 2.5) * max);
     return wins[rn];
-};
-
-function getRandomNumber(max, array) {
-    return Math.round(Math.random() * max);
 };
 
 Array.prototype.count = function(item) { 
