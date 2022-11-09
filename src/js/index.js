@@ -4,7 +4,7 @@ import { gambleNumbers, winNumbers, letsGamble } from './game.js';
 import {checkWin, setScratched} from './check-win.js';
 
 let winSection = document.querySelector('.win-section__table');
-let gameSection = document.querySelector('.game-section');
+let gameSection = document.querySelector('.game-section__table');
 
 winSection.addEventListener('click', scratchItem);
 gameSection.addEventListener('click', scratchItem);

@@ -1,9 +1,9 @@
 @import "./fonts";
 
 .gambling {
-    width: max-content;
+    width: 95%;
     height: 100%;
-    margin: 0 auto;
+    margin: 5% auto;
     padding: 20px;
     
     display: flex;
@@ -15,11 +15,11 @@
     border-radius: 25px;
 
     @include media("tablet") {
-        width: max-content;
+        width: 80%;
     };
 
     @include media("desktop") {
-        width: max-content;
+        width: 80%;
     };
     
     &__heading {
@@ -60,9 +60,7 @@
     "header header header header"
     "table table table table";
 
-    border: 3px solid black;
-    border-radius: 25px;
-    overflow: hidden;
+    @include border(3px);
 
     @include media("tablet") {
         width: 67%;
@@ -96,7 +94,7 @@
         grid-template-columns: repeat(4, 1fr);
         justify-content: space-around;
         grid-area: table;
-        background-color: black;
+        background-color: $bg-color-black;
         grid-gap: 1px;
     };
     
@@ -162,34 +160,125 @@
   
   
 .game-section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 100px);
-    background-color: black;
-    gap: 1px;
-
+    display: flex;
+    flex-direction: column-reverse;
     width: 100%;
 
-    border: 3px solid black;
-    border-radius: 30px;
-    overflow: hidden;
+    background-color: #C8C6C6;
+    
+    @include border(3px);
 
     @include media("tablet") {
-        grid-template-columns: repeat(4, 175px);
-        grid-template-rows: repeat(3, 175px);   
+        flex-direction: column-reverse;    
     };
 
     @include media("desktop") {
-        grid-template-columns: repeat(6, 200px);
-        grid-template-rows: repeat(2, 200px); 
+        flex-direction: row;  
+    };  
+    
+    &__info {
+        width: 100%;
+        background-color: green($color: #000000);
+        
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+
+
+        grid-template-areas:
+        "yournumbers"
+        "lotnumber"
+        "qrcode"
+        ;
+
+
+        @include media("tablet") {
+            width: 100%;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+
+            grid-template-areas:
+            "yournumbers yournumbers"
+            "lotnumber qrcode"
+            ;
+        };
+    
+        @include media("desktop") {
+            width: 20%;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+
+            grid-template-areas:
+            "lotnumber yournumbers"
+            "qrcode yournumbers"; 
+        };  
+    
+        
+        &-lotnumber {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-area: lotnumber;
+
+            background-color: red;
+        }
+    
+        &-qrcode {
+            grid-area: qrcode;
+
+            background-color: orange;
+            width: 100%;
+
+            &-pic {
+                width: 100%;
+            }
+        };
+    
+        &-title {
+            grid-area: yournumbers;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            
+            @include titleSize(1.5em, 700); 
+            
+            @include media("tablet") {
+                @include titleSize(2em, 700);
+            };
+            
+            @include media("desktop") {
+                @include titleSize(2.5em, 700);
+
+                writing-mode: vertical-lr;
+                transform: rotate(-180deg);
+            };   
+        };
     };
+
+    &__table {
+        width: 100%;
+        background-color: $bg-color-black;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        grid-template-rows: repeat(4, minmax(100px, 1fr));
+        gap: 1px;
+
+        @include media("tablet") {
+            grid-template-columns: repeat(4, minmax(175px, 1fr));
+            grid-template-rows: repeat(3, minmax(175px, 1fr));   
+        };
+    
+        @include media("desktop") {
+            grid-template-columns: repeat(6, minmax(200px, 1fr));
+            grid-template-rows: repeat(2, minmax(200px, 1fr)); 
+        };    
+    }
 
 
     &__item {
         position: relative;
-       
-        background-color: #C8C6C6;
-        color: black;
         
         &-front,
         &-back {
@@ -209,7 +298,7 @@
             @include fontSize(40px, 900);
 
             @include media("tablet") {
-                @include fontSize(1em, 900);    
+                @include fontSize(60px, 900);    
             };
 
             @include media("desktop") {
@@ -285,7 +374,8 @@
         width: 100%;
         margin-top: 20px;
         padding: 5px;
-        border: 1px solid black;
-        border-radius: 10px;
+        
+        @include border(1px);
+
     };
 };
