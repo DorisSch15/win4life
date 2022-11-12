@@ -19,4 +19,23 @@
     border: $size solid black;
     border-radius: 30px;
     overflow: hidden;
-  }
+  };
+
+  @mixin btn($width) {
+    width: $width;
+    height: 50px;
+    padding-left: 20px;
+
+    display: flex;
+    justify-content: stretch;
+    align-items: center;    
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    font-size: 20px;
+
+    span {
+        padding-left: 15px;
+    }; 
+  };
