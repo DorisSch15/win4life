@@ -49,7 +49,7 @@ export function checkWin(){
     if(winFromCurrentCard === 0){
         winInfo.innerHTML = `
         <h3 class="win-dialog__title-loss">Sorry, vielleicht beim nächsten Mal !</h3>
-        <iframe src="https://giphy.com/embed/X0QKGRNCxnwWs" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <iframe src="https://giphy.com/embed/X0QKGRNCxnwWs" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed win-dialog__giphy-loss" allowFullScreen></iframe>
         <p class="win-dialog__text-loss">Leider hat es dieses Mal nicht geklappt.</p>
         <button class="win-dialog__btn-loss" id="buyCard">Versuche es erneut !</button>
         `
@@ -58,7 +58,7 @@ export function checkWin(){
         winInfo.innerHTML = `
         <h3 class="win-dialog__title-win">Gratulation</h3>
         <div style="width:100%;height:0;padding-bottom:45%;position:relative;">
-            <iframe src="https://giphy.com/embed/fxsqOYnIMEefC" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <iframe src="https://giphy.com/embed/fxsqOYnIMEefC" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed win-dialog__giphy-win" allowFullScreen></iframe>
         </div>
         <p class="win-dialog__text-win">Sie haben ${getCurrencyFormat(winFromCurrentCard)} ${clientData.currency} gewonnen.</p>
         <button class="win-dialog__btn-win" id="getWin">Gewinn einsacken</button>
