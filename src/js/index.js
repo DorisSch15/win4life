@@ -2,12 +2,15 @@ import './../assets/styles/main.scss';
 
 import { gambleNumbers, winNumbers, letsGamble } from './game.js';
 import {checkWin, setScratched} from './check-win.js';
+import {checkUserData} from './user.js';
 
 let winSection = document.querySelector('.win-section__table');
 let gameSection = document.querySelector('.game-section__table');
 
 winSection.addEventListener('click', scratchItem);
 gameSection.addEventListener('click', scratchItem);
+
+window.addEventListener('load', checkUserData);
 
 render()
 
@@ -70,7 +73,10 @@ function checkString(number){
     if(typeof number.win === "string"){
         return number.win;
     } else {
-        return new Intl.NumberFormat('de-CH').format(number.win) + ' ' + number.currency;
+        return getCurrencyFormat(number.win) + ' ' + number.currency;
     };
-
 };
+
+export function getCurrencyFormat(number){
+    return new Intl.NumberFormat('de-CH').format(number);
+}
