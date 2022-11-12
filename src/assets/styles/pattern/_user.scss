@@ -1,0 +1,150 @@
+.new-client {
+    top: 20%;
+    margin: 0 auto;
+
+    border: 1px solid $bg-color-lightgray;
+
+    padding: 30px 15px;
+    width: 100%;
+    height: max-content;
+
+    background: linear-gradient(60deg, $green, $purple, $orange, $yellow);
+    
+    @include media("tablet") {
+        width: 60%;
+        padding: 30px;
+    };
+    
+    @include media("desktop") {
+        width: 40%;
+        padding: 30px;
+    };  
+
+    &::backdrop {
+        background: rgb(0 0 0 / .8);
+    };
+
+    &__emojis {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+
+        @include fontSize(30px, 900);
+
+        
+        @include media("tablet") {
+            @include fontSize(50px, 900);
+        };
+        
+        @include media("desktop") {
+            @include fontSize(50px, 900);
+        };  
+    }
+
+    &__welcome {
+        @include fontSize(30px, 900);
+        margin-bottom: 30px;
+
+        color: $bg-color-lightgray;
+    };
+
+    &__get-started {
+        margin: 0 auto;
+        @include btn(200px);
+    }
+};
+
+.yourdetails {
+    width: 100%;
+    @include fontSize(20px, 400);
+
+    color: $bg-color-lightgray;
+
+    &__yourname,
+    &__yourcredit {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+
+        @include media("tablet") {
+            flex-direction: row;
+        };
+        
+        @include media("desktop") {
+            flex-direction: row;
+        };  
+    
+
+        &-label,
+        &-input {
+            display: block;
+            width: 100%;
+
+            @include media("tablet") {
+                width: 50%;
+            };
+            
+            @include media("desktop") {
+                width: 50%;
+            };  
+        };
+
+        &-label {
+            display: flex;
+            align-items: center;
+        }
+
+        &-input {
+            @include fontSize(20px, 400);
+            margin-top: 5px;
+            height: 50px;
+            padding-left: 20px;
+        }
+    };
+};
+
+
+.user {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(50%, 1fr));
+    grid-template-rows: repeat(2, minmax(100px, 1fr));
+    grid-template-areas:
+        "welcome btn-buy"
+        "win btn-collect"
+    ;
+
+    &__title {
+        grid-area: welcome;
+        background-color: red;
+    };
+
+    &__title-name {
+        color: purple;
+    };
+
+    &__credit {
+        grid-area: win;
+
+        &-text {};
+        &-number {};
+    };
+
+    &__buyone{
+        grid-area: btn-buy;
+        place-self: center;
+    };
+
+    &__collect{
+        grid-area: btn-collect;
+        place-self: center;
+    };
+
+
+    &__buyone-btn,
+    &__collect-btn {
+        @include btn(400px);
+    };
+};
