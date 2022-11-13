@@ -157,6 +157,17 @@ Je höher der Exponent ist, desto kleiner wird die Wahrscheinlichkeit einer höh
 - [X] Anfangs hatte ich die Zahlen als String angegeben. Um den Gewinn jedoch zusammen zu zählen, müssen die Gewinne `Integer` sein. Dies habe ich angepasst. Nun hatte ich jedoch Probleme mit dem `20Jahre`-Gewinn. Da dies ein `String` ist. Dafür habe ich nun die Funktion `checkString()` erstellt.
 
 **KW45**
+- [X] `checkUserData()` erstellt und dafür auch ein Dialog-Feld eingebaut. Damit der Kunde beim ersten Besuch der Webseite den Namen und den Betrag angeben kann, denn er gerne zum Verspielen verwenden würde.
+
+- [X] Das Dialig-Feld habe ich davor bereits für die `Gewinn`- oder den `Verlust`-Meldung eingebaut, aber ohne etwas zu bewirken.
+    *   Als ich dann das Dialog-Feld im JS mit Click verschinden lassen wollte, ist es immer wieder aufgetaucht.
+        *   Wieso ? - Das habe ich bis jetzt leider nicht herausgefunden.
+    
+    * Das Problem habe ich dann gelöst, indem ich `removeChild` zum `appendChild` beim Close eingefügt habe.
+        * Wieso verhält sich das Dialog-Feld beim ersten Besuch anders als bei der Gewinn-/Verlust-Info ? 
+
+- [X] Das `giphy` aus dem Gewinn-/Verlust-Dialog rausgenommen, da ich das `giphy` nicht wie gewünscht angepasst werden konnte. Darum bin ich dann zurück zu den Emojis von `Font Awesome zurückgekehrt`.
+
 
 **KW46**
 
