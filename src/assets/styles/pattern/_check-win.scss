@@ -1,11 +1,15 @@
-.win-dialog {
-    background: white;
+.win-dialog,
+.loss-dialog {
     padding: 30px;
-    position: fixed;
     top: 20%;
     margin: 0 auto;
 
     width: 80%;
+    height: max-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     border: 1px solid $bg-color-lightgray;
     background: linear-gradient(60deg, $green, $purple, $orange, $yellow);
@@ -25,29 +29,40 @@
         background: rgb(0 0 0 / .6);
     }
 
-    &__title-loss,
-    &__title-win {
-        @include fontSize(30px, 900);
+    &__title {
         margin-bottom: 30px;
+        @include fontSize(30px, 900);
     };
 
-    &__giphy-loss,
-    &__giphy-win {
-        border: 1px solid $bg-color-lightgray;
+    &__emojis {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+;
+
+        @include fontSize(30px, 900);
+
+        @include media("tablet") {
+            @include fontSize(50px, 900);
+        };
+        
+        @include media("desktop") {
+            @include fontSize(50px, 900);
+        };  
     };
 
-    &__text-loss,
-    &__text-win {
+    &__text {
         margin: 30px 0;
 
         @include fontSize(20px, 400);
 
     };
 
-    &__btn-loss,
-    &__btn-win {
+    &__btn {
         margin: 0 auto;
-        @include btn(200px);
+        @include btn(230px);
+        display: flex;
+        justify-content: center;
     }
 
 };

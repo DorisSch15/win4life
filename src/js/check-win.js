@@ -1,19 +1,10 @@
 import { getCurrencyFormat } from './index.js';
 import { gambleNumbers, winNumbers, letsGamble } from './game.js';
-import { clientData } from './user.js';
-
-let game = document.querySelector('.gambling');
-
-let g;
-let w;
-
-let buyCard = document.querySelector('#buyCard');
-let grabWin = document.querySelector('#getWin');
-
+import { header, clientData, addWinToCredit } from './user.js';
 
 export function setScratched(id){
     let scratchedId = id.split('-');
-
+    
     if(scratchedId[1] === 'win'){
         winNumbers[scratchedId[0]].scratched = true;
     } else {
@@ -21,57 +12,64 @@ export function setScratched(id){
     }
 };
 
-
 export function checkWin(){
-    
     if(winNumbers.some(e => e.scratched === false) || gambleNumbers.some(e => e.scratched === false)){
         return;
     };
     
     let winFromCurrentCard = 0;
-    let amountAfterGame = 0;
-
-    for(g = 0; g < gambleNumbers.length; g++){
-        for (w = 0; w < winNumbers.length; w++){
+    
+    for(let g = 0; g < gambleNumbers.length; g++){
+        for (let w = 0; w < winNumbers.length; w++){
             if(gambleNumbers[g].int === winNumbers[w].int){
                 winFromCurrentCard += gambleNumbers[g].win;
-            };
+            }
         };
     };
 
-    console.log(winFromCurrentCard);
-
-    amountAfterGame = clientData.amount + winFromCurrentCard;
-
-    let winInfo = document.createElement('dialog');
-    winInfo.classList.add('win-dialog');
-
-    if(winFromCurrentCard === 0){
-        winInfo.innerHTML = `
-        <h3 class="win-dialog__title-loss">Sorry, vielleicht beim nächsten Mal !</h3>
-        <iframe src="https://giphy.com/embed/X0QKGRNCxnwWs" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed win-dialog__giphy-loss" allowFullScreen></iframe>
-        <p class="win-dialog__text-loss">Leider hat es dieses Mal nicht geklappt.</p>
-        <button class="win-dialog__btn-loss" id="buyCard">Versuche es erneut !</button>
-        `
-
-    } else {
-        winInfo.innerHTML = `
-        <h3 class="win-dialog__title-win">Gratulation</h3>
-        <div style="width:100%;height:0;padding-bottom:45%;position:relative;">
-            <iframe src="https://giphy.com/embed/fxsqOYnIMEefC" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed win-dialog__giphy-win" allowFullScreen></iframe>
-        </div>
-        <p class="win-dialog__text-win">Sie haben ${getCurrencyFormat(winFromCurrentCard)} ${clientData.currency} gewonnen.</p>
-        <button class="win-dialog__btn-win" id="getWin">Gewinn einsacken</button>
-        `
-    }
-    game.appendChild(winInfo);
-    winInfo.showModal();
+    showGameEndDialog(winFromCurrentCard);
 };
 
-// grabWin.addEventListener('click', addWinToCredit);
+function showGameEndDialog(amount){
+    let gameInfo = document.createElement('dialog');
+    gameInfo.classList.add('win-dialog');
+    
+    if(amount === 0){
+        gameInfo.innerHTML = `
+        <h3 class="win-dialog__title">Sorry, vielleicht beim nächsten Mal !</h3>
+        <div class="win-dialog__emojis">
+            <div class="fa-regular fa-face-sad-cry"></div>
+            <div class="fa-solid fa-heart-crack"></div>
+            <div class="fa-regular fa-face-sad-tear"></div>
+        </div>
+        <p class="win-dialog__text">Leider hat es dieses Mal nicht geklappt.</p>
+        <button class="win-dialog__btn">Versuche es erneut !</button>
+        `;
+    } else {
+        gameInfo.innerHTML = `
+        <h3 class="win-dialog__title">Gratulation</h3>
+        <div class="win-dialog__emojis">
+            <div class="fa-solid fa-face-smile-beam"></div>
+            <div class="fa-regular fa-face-laugh-squint"></div>
+            <div class="fa-solid fa-face-laugh-beam"></div>
+        </div>
+        <p class="win-dialog__text">Sie haben ${getCurrencyFormat(amount)} ${clientData.currency} gewonnen.</p>
+        <button class="win-dialog__btn">Gewinn einsacken</button>
+        `; 
+    }
+    
+    header.appendChild(gameInfo);
 
-// function addWinToCredit(){
-//     let currentCredit = document.querySelector('.user__credit-number');
+    gameInfo.showModal();
 
+    gameInfo.addEventListener('cancel', (e) => {
+        e.preventDefault();
+    });
 
-// }
+    let grabWin = document.querySelector('.win-dialog__btn');
+    grabWin.addEventListener('click',(e) => {
+        gameInfo.close();
+        header.removeChild(gameInfo);
+        addWinToCredit(amount);
+    });  
+};
