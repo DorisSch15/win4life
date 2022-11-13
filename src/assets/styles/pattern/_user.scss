@@ -32,7 +32,6 @@
 
         @include fontSize(30px, 900);
 
-        
         @include media("tablet") {
             @include fontSize(50px, 900);
         };
@@ -107,26 +106,59 @@
 
 .user {
     width: 100%;
+    height: max-content;
+
+    padding: 10px;
 
     display: grid;
-    grid-template-columns: repeat(2, minmax(50%, 1fr));
-    grid-template-rows: repeat(2, minmax(100px, 1fr));
+    grid-template-columns: repeat(4, minmax(100%, 1fr));
     grid-template-areas:
-        "welcome btn-buy"
-        "win btn-collect"
-    ;
+    "welcome"
+    "win"
+    "btn-buy"
+    "btn-collect"
+;
+
+    @include fontSize(30px, 900);
+    
+    @include media("tablet") {
+        grid-template-columns: repeat(2, minmax(50%, 1fr));
+        grid-template-rows: repeat(2, minmax(100px, 1fr));
+        grid-template-areas:
+            "welcome btn-buy"
+            "win btn-collect"
+        ;
+    };
+    
+    @include media("desktop") {
+        grid-template-columns: repeat(2, minmax(50%, 1fr));
+        grid-template-rows: repeat(2, minmax(100px, 1fr));
+        grid-template-areas:
+            "welcome btn-buy"
+            "win btn-collect"
+        ; 
+    };  
+
 
     &__title {
-        grid-area: welcome;
-        background-color: red;
+        width: 100%;
+
+        &-welcome {
+            grid-area: welcome;
+            margin-bottom: 10px;
+            background-color: red;
+        }
+
+        &-name {
+        };
     };
 
-    &__title-name {
-        color: purple;
-    };
 
     &__credit {
         grid-area: win;
+        margin-bottom: 10px;
+
+        background-color: green;
 
         &-text {};
         &-number {};
@@ -134,17 +166,32 @@
 
     &__buyone{
         grid-area: btn-buy;
+        width: 100%;
+        margin-bottom: 10px;
+        
         place-self: center;
     };
 
     &__collect{
         grid-area: btn-collect;
+        width: 100%;
+
         place-self: center;
+        background-color: blue;
     };
 
 
     &__buyone-btn,
     &__collect-btn {
-        @include btn(400px);
+        @include btn(100%);
+
+        @include media("tablet") {
+            @include btn(400px);
+
+        };
+        
+        @include media("desktop") {
+            @include btn(400px);
+        };  
     };
 };

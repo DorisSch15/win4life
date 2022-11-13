@@ -12,9 +12,7 @@ gameSection.addEventListener('click', scratchItem);
 
 window.addEventListener('load', checkUserData);
 
-render()
-
-function render() {
+export function render() {
     letsGamble();
     let index = 0;
     
@@ -69,7 +67,6 @@ function scratchItem(e){
 };
 
 function checkString(number){
-    
     if(typeof number.win === "string"){
         return number.win;
     } else {
@@ -79,4 +76,4 @@ function checkString(number){
 
 export function getCurrencyFormat(number){
     return new Intl.NumberFormat('de-CH').format(number);
-}
+};
