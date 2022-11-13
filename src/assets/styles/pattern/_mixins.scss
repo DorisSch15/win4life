@@ -24,7 +24,7 @@
   @mixin btn($width) {
     width: $width;
     height: 50px;
-    padding-left: 20px;
+    padding: 0 20px;
 
     display: flex;
     justify-content: stretch;
