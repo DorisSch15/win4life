@@ -1,5 +1,5 @@
 import { render, getCurrencyFormat } from './index.js';
-import { letsGamble } from './game.js';
+import { letsGamble, winNumbers, gambleNumbers } from './game.js';
 
 // get UserData / check UserData
 
@@ -34,7 +34,7 @@ function showDialog(){
         <div class="fa-solid fa-user-secret"></div>
         <div class="fa-regular fa-circle-user"></div>
     </div>
-    <h5 class="new-client__welcome">Willkommen ! Let's get personal...</h5>
+    <h5 class="new-client__title">Willkommen ! Let's get personal...</h5>
     <form method="dialog" class="new-client__yourdetails">
     <div class="yourdetails">
         <div class="yourdetails__yourname">
@@ -46,7 +46,7 @@ function showDialog(){
             <input class="yourdetails__yourcredit-input" id="clientCredit" type="number">
         </div>
     </div>
-    <button class="new-client__get-started">
+    <button class="new-client__btn">
         <i class="fa-solid fa-right-to-bracket"></i>
         <span>Los Gehts !</span>
     </button>
@@ -60,7 +60,7 @@ function showDialog(){
         e.preventDefault();
     });
     
-    let letsStart = document.querySelector('.new-client__get-started');
+    let letsStart = document.querySelector('.new-client__btn');
     letsStart.addEventListener('click',(e) => {
         closeDialog();
     });  
@@ -105,18 +105,68 @@ function saveLocalStorage(){
 // userSection - webseite
 
 let btnBuy = document.querySelector('.user__buyone-btn');
-let btnCollect = document.querySelector('.user__collect-btn');
+// let btnCollect = document.querySelector('.user__collect-btn');
 
 btnBuy.addEventListener('click', buyCard);
 
 function buyCard(){
     let costCard = 100;
 
-    clientData.amount -= costCard;
+    if(winNumbers.some(e => e.scratched === false) || gambleNumbers.some(e => e.scratched === false)){
+        
+        let newCardForReal = document.createElement('dialog');
+
+        newCardForReal.classList.add('new-card');
+
+        newCardForReal.innerHTML = `
+            <h3 class="new-card__title">Sicher, dass du wieder eine neue Karte willst ?</h3>
+            <div class="new-card__emojis">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-regular fa-hand"></i>
+                <i class="fa-solid fa-circle-question"></i>
+            </div>
+            <p class="new-card__text">So wies aussieht, bist du 2x auf den Kauf-Button gekommen. Sicher, dass du eine neue Karte willst, obwohl noch nicht alles aufgedeckt ist ?</p>
+            <div class="new-card__btns">
+                <button class="new-card__btns-yes">Japp, unbedingt !</button>
+                <button class="new-card__btns-no">Nope, das war ein Fehler !</button>
+            </div>
+        `;
+
+        header.appendChild(newCardForReal);
+
+        newCardForReal.showModal();
+
+        newCardForReal.addEventListener('cancel', (e) => {
+            e.preventDefault();
+        });
     
-    render();
-    saveLocalStorage();
-    renderUser();
+        let yes = document.querySelector('.new-card__btns-yes');
+        let no = document.querySelector('.new-card__btns-no')
+        
+        yes.addEventListener('click',(e) => {
+            clientData.amount -= costCard;
+
+            newCardForReal.close();
+            header.removeChild(newCardForReal);
+
+            render();
+            saveLocalStorage();
+            renderUser();
+        });
+
+        no.addEventListener('click', (e) => {
+            newCardForReal.close();
+            header.removeChild(newCardForReal);
+        });
+        
+    } else {
+
+        clientData.amount -= costCard;
+        
+        render();
+        saveLocalStorage();
+        renderUser();
+    }
 };
 
 export function addWinToCredit(amount){
