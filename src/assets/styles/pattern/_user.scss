@@ -1,6 +1,6 @@
 .new-client,
 .new-card {
-    top: 20%;
+    top: 10%;
     margin: 0 auto;
 
     border: 1px solid $bg-color-lightgray;
@@ -9,7 +9,7 @@
     width: 100%;
     height: max-content;
 
-    background: linear-gradient(60deg, $green, $purple, $orange, $yellow);
+    background: $gradient;
 
     color: $bg-color-lightgray;
     
@@ -199,7 +199,6 @@
         &-welcome {
             grid-area: welcome;
             margin-bottom: 10px;
-            background-color: red;
         }
 
         &-name {
@@ -211,8 +210,6 @@
         grid-area: win;
         margin-bottom: 10px;
 
-        background-color: green;
-
         &-text {};
         &-number {};
     };
@@ -220,17 +217,51 @@
     &__buyone{
         grid-area: btn-buy;
         width: 100%;
-        margin-bottom: 10px;
+        height: 100%;
+
+        margin-top: 15px;
+
+        @include media("tablet") {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 0;
+        };
+
+        @include media("desktop") {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 0;
+        };
         
-        place-self: center;
     };
 
     &__collect{
         grid-area: btn-collect;
         width: 100%;
+        height: 100%;
 
-        place-self: center;
-        background-color: blue;
+        margin-top: 15px;
+
+        @include media("tablet") {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 0;
+        };
+
+        @include media("desktop") {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 0;
+        };
+
     };
 
 
