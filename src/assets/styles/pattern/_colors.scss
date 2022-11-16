@@ -10,3 +10,8 @@ $orange: rgb(179, 110, 93);
 $yellow: rgb(224, 171, 108);
 
 $gradient: linear-gradient(60deg, $green, $purple, $orange, $yellow);
+
+$bg-card: #2F496E;
+$bg-numbers: #ED8C72;
+
+$gradientHeader: linear-gradient(60deg, $bg-card, $bg-numbers);

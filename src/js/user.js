@@ -4,7 +4,7 @@ import { letsGamble, winNumbers, gambleNumbers } from './game.js';
 // get UserData / check UserData
 
 export let header = document.querySelector('header');
-let startDialog;
+let firstAttend;
 
 let name = document.querySelector('.user__title-name');
 let credit = document.querySelector('.user__credit-number');
@@ -13,7 +13,7 @@ export let clientData;
 
 export function checkUserData(){
     if(localStorage.getItem('clientData') === null){
-        showDialog();
+        showDialogFirstAttend();
         render();
     } else {
         clientData = JSON.parse(localStorage.getItem('clientData'));
@@ -22,12 +22,12 @@ export function checkUserData(){
     }
 };
 
-function showDialog(){
-    startDialog = document.createElement('dialog');
+function showDialogFirstAttend(){
+    firstAttend = document.createElement('dialog');
     
-    startDialog.classList.add('new-client');
+    firstAttend.classList.add('new-client');
     
-    startDialog.innerHTML = `
+    firstAttend.innerHTML = `
     <div class="new-client__emojis">
         <div class="fa-solid fa-poo"></div>
         <div class="fa-regular fa-face-laugh-squint"></div>
@@ -52,21 +52,21 @@ function showDialog(){
     </button>
     </form>
     `;
-    header.appendChild(startDialog);
+    header.appendChild(firstAttend);
 
-    startDialog.showModal();
+    firstAttend.showModal();
 
-    startDialog.addEventListener('cancel', (e) => {
+    firstAttend.addEventListener('cancel', (e) => {
         e.preventDefault();
     });
     
     let letsStart = document.querySelector('.new-client__btn');
     letsStart.addEventListener('click',(e) => {
-        closeDialog();
+        closeDialogFirstAttend();
     });  
 };
 
-function closeDialog(){
+function closeDialogFirstAttend(){
     let inputs = document.querySelectorAll('input');
     
     let userName = document.querySelector('#clientName').value;
@@ -81,8 +81,8 @@ function closeDialog(){
         
         renderUser();
         saveLocalStorage();
-        startDialog.close();
-        header.removeChild(startDialog);
+        firstAttend.close();
+        header.removeChild(firstAttend);
 
     } else {
         for(let input of inputs){
@@ -174,3 +174,7 @@ export function addWinToCredit(amount){
     saveLocalStorage();
     renderUser();
 };
+
+// function checkCurrentAmount(){
+//     if()
+// }

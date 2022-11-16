@@ -19,37 +19,41 @@ body {
 };
 
 .header {
-    width: 95%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0 auto 15px;
+
+    background-color: white;
+    border-block-end: 4px solid;
+    border-image-source: $gradientHeader;
+    border-image-slice: 1;
     
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    
+    justify-content: center;
+
     @include media("tablet") {
-        width: 80%;
+
     };
-    
+
     @include media("desktop") {
-        width: 80%;
+        height: 100px;
     };
 
-    &__user {
-        width: 100%;
-        margin-top: 20px;
-        margin-bottom: 20px;
 
-        background-color: white;
-        padding: 20px;
+    // &__user {
+    //     width: 100%;
+    //     margin-bottom: 20px;
 
-        border: 5px solid black;
-        border-radius: 25px;
-    };
+    //     background-color: white;
+    //     padding: 20px;
+
+    //     border-radius: 25px;
+    // };
 };
 
 
-main {
+.wrapper {
     width: 100%;
-    padding-bottom: 10px;
+    padding-top: 15px;
 };

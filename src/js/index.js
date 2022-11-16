@@ -45,10 +45,10 @@ export function render() {
         gameBox.innerHTML = `
         <div class="game-section__item-front fa-solid fa-money-bill-1-wave" id="${index}-game"></div>
         <div class="game-section__item-back">
-        <div class="game-section__item-back__number-int">${number.int}</div>
-        <div class="game-section__item-back__number-string">${number.string}</div>
-        <div class="game-section__item-back__win-int">${checkString(number)}</div>
-        <div class="game-section__item-back__win-string">${number.text}</div>
+            <div class="game-section__item-back__number-int">${number.int}</div>
+            <div class="game-section__item-back__number-string">${number.string}</div>
+            <div class="game-section__item-back__win-int">${checkString(number)}</div>
+            <div class="game-section__item-back__win-string">${number.text}</div>
         </div>
         `;
         
