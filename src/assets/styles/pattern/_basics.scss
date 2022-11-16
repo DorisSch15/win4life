@@ -40,11 +40,15 @@ body {
         margin-top: 20px;
         margin-bottom: 20px;
 
-        background-color: $purple;
+        background-color: white;
         padding: 20px;
-        color: white;
+        // color: white;
     
-        @include border(1px);
+
+        border: 5px solid;
+        border-radius: 10px;
+        border-image-source: $gradient;
+        border-image-slice: 1;
     };
 };
 
@@ -54,48 +58,4 @@ main {
     padding-bottom: 10px;
 
     background-color: $bg-color-lightgray;
-};
-
-.footer {
-    height: 50px;
-
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-
-    background: #e0e0e0;
-
-    &__wrapper {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        @include media("tablet") {
-            flex-direction: row;
-            align-items: space-evenly;
-        };
-    
-        @include media("desktop") {
-            flex-direction: row;
-            align-items: space-evenly;
-        };  
-    };
-
-    &__list {
-        BACKGROUND: RED;
-        display: flex;
-        flex-direction: column;
-
-        @include media("tablet") {
-            flex-direction: row;
-            align-items: space-evely;
-        };
-    
-        @include media("desktop") {
-            flex-direction: row;
-            align-items: space-evenly;
-        }; 
-
-    }
 };

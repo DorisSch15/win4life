@@ -1,5 +1,6 @@
 
 $bg-color-lightgray: #e8e8e8;
+$bg-color-moregray: #e0e0e0;
 $bg-color-navs: #404d59;
 $bg-color-black: #000000;
 
@@ -7,3 +8,5 @@ $green: rgb(42, 92, 94);
 $purple: rgb(64, 69, 94);
 $orange: rgb(179, 110, 93);
 $yellow: rgb(224, 171, 108);
+
+$gradient: linear-gradient(60deg, $green, $purple, $orange, $yellow);
