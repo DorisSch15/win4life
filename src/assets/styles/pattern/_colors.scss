@@ -1,17 +1,10 @@
 
-$bg-color-lightgray: #e8e8e8;
-$bg-color-moregray: #e0e0e0;
-$bg-color-navs: #404d59;
-$bg-color-black: #000000;
 
-$green: rgb(42, 92, 94);
-$purple: rgb(64, 69, 94);
-$orange: rgb(179, 110, 93);
-$yellow: rgb(224, 171, 108);
+$bg-color-main: #e0e0e0;
+$bg-color-card: #2F496E;
+$bg-color-table: #000000;
+$bg-color-numbers: #ED8C72;
 
-$gradient: linear-gradient(60deg, $green, $purple, $orange, $yellow);
+$light: #e8e8e8;
 
-$bg-card: #2F496E;
-$bg-numbers: #ED8C72;
-
-$gradientHeader: linear-gradient(60deg, $bg-card, $bg-numbers);
+$gradient: linear-gradient(60deg, $bg-color-card, $bg-color-numbers);

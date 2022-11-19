@@ -22,13 +22,13 @@
   };
 
   @mixin btn($width) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: $width;
     height: 50px;
     padding: 0 20px;
-
-    display: flex;
-    justify-content: stretch;
-    align-items: center;    
 
     border: 1px solid black;
     border-radius: 5px;
@@ -36,6 +36,6 @@
     font-size: 20px;
 
     span {
-        padding-left: 15px;
+      padding-left: 15px;
     }; 
   };

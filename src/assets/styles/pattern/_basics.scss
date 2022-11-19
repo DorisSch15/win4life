@@ -11,27 +11,27 @@
 };
 
 body {
+    background-color: $light;
     color: black;
-    background-color: $bg-color-moregray;
 
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
 };
 
 .header {
-    width: 100%;
-    margin: 0 auto 15px;
-
-    background-color: white;
-    border-block-end: 4px solid;
-    border-image-source: $gradientHeader;
-    border-image-slice: 1;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
+    width: 100%;
+    margin: 0 auto 15px;
+
+    background-color: white;
+    border-block-end: 4px solid;
+    border-image-source: $gradient;
+    border-image-slice: 1;
+    
     @include media("tablet") {
 
     };
@@ -39,21 +39,12 @@ body {
     @include media("desktop") {
         height: 100px;
     };
-
-
-    // &__user {
-    //     width: 100%;
-    //     margin-bottom: 20px;
-
-    //     background-color: white;
-    //     padding: 20px;
-
-    //     border-radius: 25px;
-    // };
 };
 
 
 .wrapper {
     width: 100%;
+    
     padding-top: 15px;
+    padding-bottom: 15px;
 };
