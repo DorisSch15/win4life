@@ -1,5 +1,5 @@
-import { render, getCurrencyFormat } from './index.js';
-import { letsGamble, winNumbers, gambleNumbers } from './game.js';
+import { winSection, gameSection, renderCard, getCurrencyFormat } from './index.js';
+import { createNewCard, winNumbers, gambleNumbers } from './game.js';
 
 // get UserData / check UserData
 
@@ -13,16 +13,19 @@ export let clientData;
 
 export function checkUserData(){
     if(localStorage.getItem('clientData') === null){
-        showDialogFirstAttend();
-        render();
+        showUserSetUpDialog();
+        renderCard();
     } else {
         clientData = JSON.parse(localStorage.getItem('clientData'));
         renderUser();
-        render();
+        renderCard();
     }
 };
 
-function showDialogFirstAttend(){
+function showUserSetUpDialog(){
+    winSection.classList.add('win-section__table--inactive');
+    gameSection.classList.add('game-section__table--inactive');
+
     firstAttend = document.createElement('dialog');
     
     firstAttend.classList.add('new-client');
@@ -62,16 +65,17 @@ function showDialogFirstAttend(){
     
     let letsStart = document.querySelector('.new-client__btn');
     letsStart.addEventListener('click',(e) => {
-        closeDialogFirstAttend();
+        e.preventDefault();
+        closeUserSetUpDialog();
     });  
 };
 
-function closeDialogFirstAttend(){
+function closeUserSetUpDialog(){
     let inputs = document.querySelectorAll('input');
     
     let userName = document.querySelector('#clientName').value;
     let userCredit = document.querySelector('#clientCredit').value;
-    
+
     if(!userName.match(/^\s*$/) && !userCredit.match(/^\s*$/)){
         clientData = {
             name: userName,
@@ -79,7 +83,11 @@ function closeDialogFirstAttend(){
             currency: "Fr"
         };
         
+        winSection.classList.remove('win-section__table--inactive');
+        gameSection.classList.remove('game-section__table--inactive');
+        
         renderUser();
+        buyCard();
         saveLocalStorage();
         firstAttend.close();
         header.removeChild(firstAttend);
@@ -87,10 +95,11 @@ function closeDialogFirstAttend(){
     } else {
         for(let input of inputs){
             if(input.value.match(/^\s*$/)){
-                input.style.backgroundColor = 'red';
+                input.style.backgroundColor = '#B81F3C';
+                input.placeholder = 'bitte ausfüllen';
             }
         };
-    };
+    }
 };
 
 function renderUser(){ 
@@ -149,7 +158,8 @@ function buyCard(){
             newCardForReal.close();
             header.removeChild(newCardForReal);
 
-            render();
+            createNewCard();
+            renderCard();
             saveLocalStorage();
             renderUser();
         });
@@ -163,7 +173,8 @@ function buyCard(){
 
         clientData.amount -= costCard;
         
-        render();
+        createNewCard();
+        renderCard();
         saveLocalStorage();
         renderUser();
     }

@@ -1,17 +1,17 @@
+@import "./colors";
+
 .new-client,
 .new-card {
-    top: 10%;
-    margin: 0 auto;
-
-    border: 1px solid $bg-color-lightgray;
-
-    padding: 30px 15px;
     width: 100%;
     height: max-content;
+    top: 10%;
 
-    background: $gradient;
+    margin: 0 auto;
+    border: 1px solid $light;
+    padding: 30px 15px;
 
-    color: $bg-color-lightgray;
+    background-image: $gradient;
+    color: $light;
     
     @include media("tablet") {
         width: 60%;
@@ -20,7 +20,6 @@
     
     @include media("desktop") {
         width: 40%;
-        padding: 30px;
     };  
 
     &::backdrop {
@@ -28,25 +27,25 @@
     };
 
     &__emojis {
-        width: 100%;
         display: flex;
         justify-content: center;
+
+        width: 100%;
         margin-bottom: 30px;
 
-        color: black;
-
         @include fontSize(30px, 900);
+        color: black;
 
         @include media("tablet") {
             @include fontSize(50px, 900);
         };
-        
-        @include media("desktop") {
-            @include fontSize(50px, 900);
-        };  
+
     }
 
     &__title {
+        display: flex;
+        justify-content: center;
+
         @include fontSize(30px, 900);
         margin-bottom: 30px;
     };
@@ -60,7 +59,7 @@
 .new-card {
     &__emojis {
         justify-content: space-evenly;
-        color: $bg-color-lightgray;
+        color: $light;
     }
 
     &__text {
@@ -76,7 +75,6 @@
 
         @include media("tablet") {
             flex-direction: column;
-
         };
         
         @include media("desktop") {
@@ -89,21 +87,12 @@
             @include btn(100%);
             display: flex;
             justify-content: center;
+
             margin-top: 10px;
 
             @include media("tablet") {
                 @include btn(300px);
-                display: flex;
-                justify-content: center;
-
             };
-            
-            @include media("desktop") {
-                @include btn(300px);
-                display: flex;
-                justify-content: center;
-            };  
-
         };
     };
 };
@@ -112,22 +101,18 @@
     width: 100%;
     @include fontSize(20px, 400);
 
-    color: $bg-color-lightgray;
+    color: $light;
 
     &__yourname,
     &__yourcredit {
         display: flex;
         flex-direction: column;
+
         margin-bottom: 30px;
 
         @include media("tablet") {
             flex-direction: row;
-        };
-        
-        @include media("desktop") {
-            flex-direction: row;
-        };  
-    
+        }; 
 
         &-label,
         &-input {
@@ -137,10 +122,6 @@
             @include media("tablet") {
                 width: 50%;
             };
-            
-            @include media("desktop") {
-                width: 50%;
-            };  
         };
 
         &-label {
@@ -153,7 +134,13 @@
             margin-top: 5px;
             height: 50px;
             padding-left: 20px;
-        }
+            border: 1px solid $light;
+            border-radius: 5px;
+
+            &::placeholder {
+                color: white;
+            };
+        };
     };
 };
 
@@ -173,8 +160,8 @@
         grid-template-columns: repeat(2, minmax(50%, 1fr));
         grid-template-rows: repeat(2, minmax(100px, 1fr));
         grid-template-areas:
-            "welcome btn-buy"
-            "win btn-collect"
+            "welcome win"
+            "btn-buy btn-collect"
         ;
     };
     
@@ -183,13 +170,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: baseline;
-        // grid-template-colums: repeat(4, 1fr);
-        // grid-template-rows: repeat(1, 1fr);
-        // background-color: blue;
-
-        // grid-template-areas:
-        //     "welcome win btn-buy btn-collect"
-        // ; 
     };  
 
     &__title {
@@ -197,6 +177,7 @@
 
         @include media("tablet") {
         };
+
         @include media("desktop") {
             width: 25%;
         };
@@ -221,13 +202,14 @@
 
         @include media("tablet") {
         };
+
         @include media("desktop") {
             width: 25%;
         };
-
     };
 
-    &__buyone{
+    &__buyone,
+    &__collect {
         width: 100%;
         height: 100%;
 
@@ -243,46 +225,18 @@
 
         @include media("desktop") {
             width: 25%;
-
-            margin-top: 0;
         };
         
     };
-
-    &__collect{
-        grid-area: btn-collect;
-        width: 100%;
-        height: 100%;
-
-        margin-top: 15px;
-
-        @include media("tablet") {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            margin-top: 0;
-        };
-
-        @include media("desktop") {
-            width: 25%;
-            margin-top: 0;
-        };
-
-    };
-
 
     &__buyone-btn,
     &__collect-btn {
         @include btn(100%);
+        justify-content: stretch;  
 
         @include media("tablet") {
             @include btn(400px);
-
+            justify-content: stretch;  
         };
-        
-        @include media("desktop") {
-            @include btn(400px);
-        };  
     };
 };
