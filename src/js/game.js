@@ -1,12 +1,25 @@
 import { gameNumbers } from './numbers.js';
 import { wins } from './wins.js';
+import { saveNumbersLocalStorage } from './check-win.js';
 
 export let winNumbers = [];
 export let gambleNumbers = [];
 
-export function letsGamble() {
+
+export function CheckExistingCard(){
+    if(localStorage.getItem('winNumbers') === null){
+        return
+    } else {
+        winNumbers = JSON.parse(localStorage.getItem('winNumbers'));
+        gambleNumbers = JSON.parse(localStorage.getItem('gambleNumbers'));
+    };
+};
+
+export function createNewCard() {
     createNewWinNumbers();
     createNewGambleNumbers();
+
+    saveNumbersLocalStorage();
 };
 
 // create WinNumbers
