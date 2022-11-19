@@ -4,18 +4,19 @@ import { header, clientData, addWinToCredit } from './user.js';
 
 export function setScratched(id){
     let scratchedId = id.split('-');
-    
+
     if(scratchedId[1] === 'win'){
         winNumbers[scratchedId[0]].scratched = true;
     } else {
         gambleNumbers[scratchedId[0]].scratched = true;
     }
+    saveNumbersLocalStorage();
 };
 
 export function checkWin(){
     if(winNumbers.some(e => e.scratched === false) || gambleNumbers.some(e => e.scratched === false)){
         return;
-    };
+    }
     
     let winFromCurrentCard = 0;
     
@@ -35,6 +36,7 @@ function showGameEndDialog(amount){
     gameInfo.classList.add('win-dialog');
     
     if(amount === 0){
+        gameInfo.classList.add('win-dialog--loss');
         gameInfo.innerHTML = `
         <h3 class="win-dialog__title">Sorry, vielleicht beim nächsten Mal !</h3>
         <div class="win-dialog__emojis">
@@ -46,6 +48,7 @@ function showGameEndDialog(amount){
         <button class="win-dialog__btn">Versuche es erneut !</button>
         `;
     } else {
+        gameInfo.classList.add('win-dialog--win');
         gameInfo.innerHTML = `
         <h3 class="win-dialog__title">Gratulation</h3>
         <div class="win-dialog__emojis">
@@ -72,4 +75,9 @@ function showGameEndDialog(amount){
         header.removeChild(gameInfo);
         addWinToCredit(amount);
     });  
+};
+
+export function saveNumbersLocalStorage(){
+    localStorage.setItem('winNumbers', JSON.stringify(winNumbers));
+    localStorage.setItem('gambleNumbers', JSON.stringify(gambleNumbers));
 };
