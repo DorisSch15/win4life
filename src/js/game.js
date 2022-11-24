@@ -1,6 +1,6 @@
 import { gameNumbers } from './numbers.js';
 import { wins } from './wins.js';
-import { saveNumbersLocalStorage } from './check-win.js';
+import { saveNumbersToLocalStorage } from './check-win.js';
 
 export let winNumbers = [];
 export let gambleNumbers = [];
@@ -19,7 +19,7 @@ export function createNewCard() {
     createNewWinNumbers();
     createNewGambleNumbers();
 
-    saveNumbersLocalStorage();
+    saveNumbersToLocalStorage();
 };
 
 // create WinNumbers
@@ -91,14 +91,5 @@ function getRandomWinNumber(max){
 function getRandomPrice(max) {
     let rn = Math.round(Math.pow(Math.random(), 2.5) * max);
     return wins[rn];
-};
-
-Array.prototype.count = function(item) { 
-    let appearance = 0; //This is the default value
-    this.forEach(index => {
-        if (index === item)
-            appearance++
-    });
-    return appearance;
 };
 
