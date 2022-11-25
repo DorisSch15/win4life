@@ -17,7 +17,7 @@ export function showPayOutDialog(){
         <p class="pay-out__text">Leider ist das hier nur ein Spiel und deshalb können wir dir deinen Betrag über ${getCurrencyFormat(clientData.amount)} ${clientData.currency}. nicht auszahlen.<br><br>
         Gerne kannst du das Geld für die Weiterentwicklung der App spenden oder zum Game zurückkehren.</p>
         <div class="pay-out__btns">
-            <button class="payout__btns-donate">
+            <button class="pay-out__btns-donate">
                 <i class="fa-solid fa-hand-holding-dollar"></i>
                 <span>Betrag spenden</span>
             </button>
