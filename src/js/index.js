@@ -3,12 +3,16 @@ import './../assets/styles/main.scss';
 import { gambleNumbers, winNumbers, createNewCard, CheckExistingCard } from './game.js';
 import {checkWin, setScratched} from './check-win.js';
 import {checkUserData} from './user.js';
+import { showPayOutDialog } from './dialog_pay-out.js'
 
+export let header = document.querySelector('header');
 export let winSection = document.querySelector('.win-section__table');
 export let gameSection = document.querySelector('.game-section__table');
+let btnPayOut = document.querySelector('.user__payout-btn');
+
 
 window.addEventListener('load', checkUserData);
-
+btnPayOut.addEventListener('click', showPayOutDialog)
 winSection.addEventListener('click', scratchItem);
 gameSection.addEventListener('click', scratchItem);
 
