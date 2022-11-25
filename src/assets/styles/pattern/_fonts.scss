@@ -4,22 +4,3 @@
 // font for text
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-@mixin fontSize($size, $weight) {
-    font-size: $size;
-    font-weight: $weight;
-};
-
-@mixin titleSize($size, $weight) {
-    font-size: $size;
-    font-weight: $weight;
-
-    @include media("tablet") {
-        font-size: calc($size / 1.2);
-        font-weight: $weight;
-    };
-
-    @include media("desktop") {
-        font-size: calc($size / 1.4);
-        font-weight: $weight;
-    };
-};

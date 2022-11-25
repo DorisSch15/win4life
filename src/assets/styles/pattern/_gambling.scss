@@ -16,9 +16,12 @@
     border-radius: 25px;
 
     @include media("tablet") {
-        width: 60%;
+        width: 80%;
     };
     
+    @include media("desktop") {
+        width: 60%;
+    };
     &__heading {
         margin-bottom: 15px;
         
@@ -42,6 +45,16 @@
         align-items: flex-end;
 
         width: 100%;
+    };
+
+    &__information {
+        margin: 0 auto;
+        padding-top: 20px;
+    
+        font-size: 16px;
+        color: white;
+    
+        text-align: center;
     };
 };
 
@@ -77,14 +90,14 @@
 
         grid-area: header;
 
-        @include titleSize(1.5em, 700); 
+        @include titleSize(1.5rem, 700); 
         
         @include media("tablet") {
-            @include titleSize(2em, 700);
+            @include titleSize(2rem, 700);
         };
 
         @include media("desktop") {
-            @include titleSize(2.5em, 700);
+            @include titleSize(2.5rem, 700);
         };   
     };
 
@@ -146,7 +159,15 @@
 
             
             &-int {
-                @include fontSize(2em, 700);    
+                @include fontSize(1.2rem, 900);
+
+                @include media("tablet") {
+                    @include fontSize(1.5rem, 900);
+                };
+
+                @include media("desktop") {
+                    @include fontSize(2rem, 900);
+                };  
             };
             
             &-string {
@@ -154,7 +175,7 @@
 
                 @include media("tablet") {
                     display: block;
-                    @include fontSize(1em, 400);    
+                    @include fontSize(1rem, 400);    
                 };
             }; 
         };
@@ -211,14 +232,14 @@
             justify-content: center;
             align-items: center;
 
-            @include titleSize(1.5em, 700); 
+            @include titleSize(1.5rem, 700); 
             
             @include media("tablet") {
-                @include titleSize(2em, 700);
+                @include titleSize(2rem, 700);
             };
             
             @include media("desktop") {
-                @include titleSize(2.5em, 700);
+                @include titleSize(2.5rem, 700);
 
                 writing-mode: vertical-lr;
                 transform: rotate(-180deg);
@@ -291,62 +312,43 @@
             position: absolute;
             height: 100%;
             width: 100%;
-
+            
             z-index: 5;
-
+            
             background-color: #C8C6C6;
-
             &__number-int {
-                @include fontSize(1.5em, 700);  
+                @include fontSize(1.2rem, 900);
+
+                @include media("tablet") {
+                    @include fontSize(1.5rem, 900);
+                };
+
+                @include media("desktop") {
+                    @include fontSize(2rem, 900);
+                };
             };
-        
+            
+            &__win-int {
+                @include fontSize(1.2rem, 400);
+
+                @include media("tablet") {
+                    @include fontSize(1.5rem, 400);
+                };
+
+                @include media("desktop") {
+                    @include fontSize(2rem, 400);
+                };
+            };    
+
             &__number-string,
             &__win-string {
                 display: none;
-
+                
                 @include media("tablet") {
                     display: block;
-                    @include fontSize(1em, 400);    
+                    @include fontSize(1rem, 400);    
                 };
             };
-        
-            &__win-int {
-                @include fontSize(1.5em, 400);
-
-                @include media("tablet") {
-                    @include fontSize(2em, 400);
-                };
-            };    
         };
-    };
-};
-
-.gambling-information {
-    display: flex;
-    flex-direction: column;
-
-    &__text {
-        margin-top: 5px;
-        font-size: 16px;
-        color: white;
-
-        text-align: center;
-
-        // @include media("tablet") {
-        //     font-size: 8px;
-        // };
-
-        // @include media("desktop") {
-        //     font-size: 16px;
-        // };
-
-    };
-    
-    &__gambling-rules {
-        width: 100%;
-        margin-top: 20px;
-        padding: 5px;
-        
-        @include border(1px);
     };
 };

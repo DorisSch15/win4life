@@ -1,11 +1,10 @@
 @mixin media ($device){
-
     @if $device == 'mobile' {
       @media screen and (min-width: 500px){
           @content;
       };
     } @else if $device == 'tablet' {
-        @media screen and (min-width: 1000px) {
+        @media screen and (min-width: 800px) {
             @content;
         }
     } @else if $device == 'desktop' {
@@ -14,6 +13,26 @@
      };
     };
   };
+
+@mixin fontSize($size, $weight) {
+    font-size: $size;
+    font-weight: $weight;
+};
+
+@mixin titleSize($size, $weight) {
+    font-size: $size;
+    font-weight: $weight;
+
+    @include media("tablet") {
+        font-size: calc($size / 1.2);
+        font-weight: $weight;
+    };
+
+    @include media("desktop") {
+        font-size: calc($size / 1.4);
+        font-weight: $weight;
+    };
+};
 
   @mixin border($size) {
     border: $size solid black;

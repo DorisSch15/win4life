@@ -1,145 +1,65 @@
-@import "./colors";
+// Styling header
 
-.yourdetails {
-    width: 100%;
-    @include fontSize(20px, 400);
-    
-    color: $light;
-    
-    &__yourname,
-    &__yourcredit {
-        display: flex;
-        flex-direction: column;
-
-        margin-bottom: 30px;
-
-        @include media("tablet") {
-            flex-direction: row;
-        }; 
-
-        &-label {
-            display: flex;
-            align-items: center;
-
-            width: 100%;
-
-            @include media("tablet") {
-                width: 50%;
-            };
-        };
-
-        &-input {
-            width: 100%;
-            background-color: white;
-
-            @include media("tablet") {
-                width: 50%;
-            };
-            @include fontSize(20px, 400);
-            margin-top: 5px;
-            height: 50px;
-            padding-left: 20px;
-            border: 1px solid $light;
-            border-radius: 5px;
-
-            &::placeholder {
-                color: white;
-            };
-
-            &-select {
-                border: none;
-                padding-left: 20px;
-                font-size: 1em;
-                width: 100%;
-                height: 100%;
-
-                background-color: white;
-                outline: none;
-            };
-        };
-    };
-};
-
-.yourdetails__yourcredit-input {
-    position: relative;
-    padding-left: 0px;
-};
-
-.yourdetails__yourcredit-arrow {
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
-        width: 40px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        pointer-events: none;
-        background-color: white;
-        color: black;
-
-};
-
-
+h2 {
+    font-size: 1em;
+}
 
 .user {
+    width: 95vw;
+    height: max-content;
+    padding: 20px;
+
     display: flex;
     flex-direction: column;
 
-    width: 100%;
-    height: max-content;
-    padding: 10px;
+    row-gap: 10px;
 
-    @include fontSize(30px, 900);
+    @include titleSize(1.5rem, 700); 
     
     @include media("tablet") {
         display: grid;
-        grid-template-columns: repeat(2, minmax(50%, 1fr));
-        grid-template-rows: repeat(2, minmax(100px, 1fr));
+        grid-template-columns: repeat(2, minmax(40vw, 1fr));
+        grid-template-rows: repeat(2, minmax(60px, 1fr));
         grid-template-areas:
-            "welcome win"
-            "btn-buy btn-collect"
+        "welcome win"
+        "btn-buy btn-payout"
         ;
+        gap: 15px;
+        padding: 15px;
+        
+        @include titleSize(2rem, 700);
     };
     
     @include media("desktop") {
+        width: 90vw;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: baseline;
+        align-items: center;
+        
+        @include titleSize(2.5rem, 700);
     };  
 
-    &__title {
-        width: 100%;
-
+    &__title-welcome {
+        grid-area: welcome;
+        
         @include media("tablet") {
+            display: flex;
+            align-items: center;
         };
-
+        
         @include media("desktop") {
+            justify-content: center;
             width: 25%;
-        };
-
-        &-welcome {
-            grid-area: welcome;
-            margin-bottom: 10px;
-        }
-
-        &-name {
         };
     };
 
-
     &__credit {
-        width: 100%;
         grid-area: win;
-        margin-bottom: 10px;
-
-        &-text {};
-        &-number {};
 
         @include media("tablet") {
+            display: flex;
+            align-items: center;
         };
 
         @include media("desktop") {
@@ -148,18 +68,14 @@
     };
 
     &__buyone,
-    &__collect {
+    &__payout {
         width: 100%;
         height: 100%;
-
-        margin-top: 15px;
 
         @include media("tablet") {
             display: flex;
             justify-content: center;
             align-items: center;
-
-            margin-top: 0;
         };
 
         @include media("desktop") {
@@ -169,220 +85,12 @@
     };
 
     &__buyone-btn,
-    &__collect-btn {
+    &__payout-btn {
         @include btn(100%);
-        justify-content: stretch;  
-
-        @include media("tablet") {
-            @include btn(400px);
-            justify-content: stretch;  
-        };
-    };
-};
-
-.new-client,
-.new-card,
-.collect-win,
-.top-up-credit {
-    width: 100%;
-    height: max-content;
-    top: 10%;
-
-    margin: 0 auto;
-    border: 1px solid $light;
-    padding: 30px 15px;
-
-    background-image: $gradient;
-    color: $light;
-    
-    @include media("tablet") {
-        width: 60%;
-        padding: 30px;
-    };
-    
-    @include media("desktop") {
-        width: 40%;
-    };  
-
-    &::backdrop {
-        background: rgb(0 0 0 / .8);
-    };
-
-    &__emojis {
-        width: 100%;
-        margin-bottom: 30px;
-
-        @include fontSize(30px, 900);
-        color: black;
-
-        @include media("tablet") {
-            @include fontSize(50px, 900);
-        };
-    };
-
-    &__title {
-        display: flex;
-        justify-content: center;
-
-        @include fontSize(30px, 900);
-        margin-bottom: 30px;
-    };
-
-    &__btn {
-        margin: 0 auto;
-        @include btn(200px);
-    };
-};
-
-.new-client {
-    &__emojis {
-        display: flex;
-        justify-content: center;
-    };
-
-    &__price {
-        margin-top: 30px;
-        text-align: center;
-        padding: 10px;
-        @include fontSize(20px, 900);
-        border: 5px solid $light;
-        line-height: 30px;
-
-        h3 {
-            margin-bottom: 5px;
-            background-color: $light;
-            // border-bottom: 1px solid $light;
-            color: $red;
-        }
-    };
-};
-
-.new-card,
-.collect-win,
-.top-up-credit {
-    &__emojis {
-        display: flex;
-        justify-content: space-evenly;
-        color: $light;
-    }
-
-    &__text {
-        margin-bottom: 30px;
-
-        @include fontSize(20px, 400);
-    };
-
-    &__btns {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        @include media("tablet") {
-            flex-direction: column;
-        };
-        
+        justify-content: stretch;
         @include media("desktop") {
-            flex-direction: row;
-            justify-content: space-around;
-        };  
-        
-        &-yes,
-        &-no,
-        &-return,
-        &-donate {
-            @include btn(100%);
-            display: flex;
-            justify-content: center;
-
-            margin-top: 10px;
-
-            @include media("tablet") {
-                @include btn(300px);
-            };
+            @include btn(90%);
         };
     };
-};
-
-.add-money {
-    width: 100%;
-    @include fontSize(20px, 400);
-
-    color: $light;
-
-    &__new-credit {
-        display: flex;
-        flex-direction: column;
-
-        margin-bottom: 30px;
-
-        @include media("tablet") {
-            flex-direction: row;
-        }; 
-
-        &-label,
-        &-input {
-            display: block;
-            width: 100%;
-
-            @include media("tablet") {
-                width: 50%;
-            };
-        };
-
-        &-label {
-            display: flex;
-            align-items: center;
-        }
-
-        &-input {
-            @include fontSize(20px, 400);
-            margin-top: 5px;
-            height: 50px;
-            border: 1px solid $light;
-            border-radius: 5px;
-
-            position: relative;
-
-            &::placeholder {
-                color: white;
-            };
-
-            &-select {
-                border: none;
-                padding-left: 20px;
-                font-size: 1em;
-                width: 100%;
-                height: 100%;
-
-                background-color: white;
-                outline: none;
-            };
-        };
-    };
-
-    &__btn {
-        margin: 15px auto 0px auto;
-        @include btn(100%);
-
-        @include media("tablet") {
-            @include btn(50%);
-        };
-    };
-};
-
-.add-money__new-credit-arrow {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 40px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    pointer-events: none;
-    background-color: white;
-    color: black;
 };
 
