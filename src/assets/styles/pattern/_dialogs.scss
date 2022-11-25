@@ -107,7 +107,18 @@
         };  
         
         &-yes,
-        &-no,
+        &-no {
+            @include btn(100%);
+            display: flex;
+            justify-content: center;
+
+            margin-top: 10px;
+
+            @include media("desktop") {
+                @include btn(45%);
+            };
+        };
+
         &-return,
         &-donate {
             @include btn(100%);
