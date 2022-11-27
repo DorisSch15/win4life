@@ -2,11 +2,9 @@ import { header, getCurrencyFormat } from './index.js';
 import { clientData, renderUser } from './user.js';
 
 export function showPayOutDialog(){
-    
     let payOutDialog = document.createElement('dialog');
-
     payOutDialog.classList.add('pay-out');
-
+    
     payOutDialog.innerHTML = `
         <h3 class="pay-out__title">Unmengen an Geld gewonnen ?</h3>
         <div class="pay-out__emojis">
@@ -31,7 +29,6 @@ export function showPayOutDialog(){
     header.appendChild(payOutDialog);
 
     payOutDialog.showModal();
-
     payOutDialog.addEventListener('cancel', (e) => {
         e.preventDefault();
     });
@@ -41,7 +38,9 @@ export function showPayOutDialog(){
 
     donateBtn.addEventListener('click', () => {
         clientData.amount = 0;
+
         renderUser();
+        
         payOutDialog.close();
         header.removeChild(payOutDialog);
     });

@@ -1,13 +1,11 @@
-import { header, renderCard } from './index.js';
-import { clientData, costCard, renderUser, buyCard } from './user.js';
+import { header, costCard, renderCard } from './index.js';
+import { clientData, renderUser, buyCard } from './user.js';
 import { createNewCard } from './game.js';
-import { topUpCreditAmount } from './dialog_top-up-credit.js';
+import { showTopUpDialog } from './dialog_top-up-credit.js';
 
 
-export function newCardForRealDialog(){
-
+export function showNewCardForRealDialog(){
     let newCardForReal = document.createElement('dialog');
-
     newCardForReal.classList.add('new-card');
 
     newCardForReal.innerHTML = `
@@ -27,23 +25,19 @@ export function newCardForRealDialog(){
     header.appendChild(newCardForReal);
 
     newCardForReal.showModal();
-
     newCardForReal.addEventListener('cancel', (e) => {
         e.preventDefault();
     });
 
     let yes = document.querySelector('.new-card__btns-yes');
-    let no = document.querySelector('.new-card__btns-no')
+    let no = document.querySelector('.new-card__btns-no');
 
-    yes.addEventListener('click',(e) => {
+    yes.addEventListener('click',() => {
         if(clientData.amount < costCard){
-
-            topUpCreditAmount();
-
+            showTopUpDialog();
+            
             newCardForReal.close();
             header.removeChild(newCardForReal);
-
-
         } else {
             clientData.amount -= costCard;
 
@@ -56,7 +50,7 @@ export function newCardForRealDialog(){
         }
     });
 
-    no.addEventListener('click', (e) => {
+    no.addEventListener('click', () => {
         newCardForReal.close();
         header.removeChild(newCardForReal);
     });

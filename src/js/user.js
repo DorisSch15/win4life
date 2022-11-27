@@ -1,15 +1,12 @@
-import { winSection, gameSection, header, renderCard, getCurrencyFormat } from './index.js';
+import { renderCard, costCard, getCurrencyFormat } from './index.js';
 import { createNewCard, winNumbers, gambleNumbers } from './game.js';
-import { showUserSetUpDialog, closeUserSetUpDialog } from './dialog_new-user.js';
-import { newCardForRealDialog } from './dialog_new-card.js';
-import { topUpCreditAmount } from './dialog_top-up-credit.js';
-
-// get UserData / check UserData
-
-export let costCard = 100;
+import { showUserSetUpDialog } from './dialog_new-user.js';
+import { showNewCardForRealDialog } from './dialog_new-card.js';
+import { showTopUpDialog } from './dialog_top-up-credit.js';
 
 let name = document.querySelector('.user__title-welcome-name');
 let credit = document.querySelector('.user__credit-number');
+
 
 export let clientData = {
     name: '',
@@ -47,18 +44,12 @@ let btnBuy = document.querySelector('.user__buyone-btn');
 btnBuy.addEventListener('click', buyCard);
 
 export function buyCard(){
-
     if(winNumbers.some(e => e.scratched === false) || gambleNumbers.some(e => e.scratched === false)){
-        
-        newCardForRealDialog();
-        
+        showNewCardForRealDialog();
     } else {
         if(clientData.amount < costCard){
-
-            topUpCreditAmount();
-            
+            showTopUpDialog();
         } else {
-
             clientData.amount -= costCard;
             
             createNewCard();

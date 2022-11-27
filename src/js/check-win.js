@@ -12,6 +12,7 @@ export function setScratched(id){
     } else {
         gambleNumbers[scratchedId[0]].scratched = true;
     }
+
     saveNumbersToLocalStorage();
 };
 
@@ -36,13 +37,9 @@ export function checkWin(){
     };
 
     if(win >= 3){
-
         showTripleWinDialog();
-
     } else {
-
         showGameResultDialog(winFromCurrentCard);
-
     }
 };
 

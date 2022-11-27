@@ -5,13 +5,13 @@ export let winNumbers = [];
 export let gambleNumbers = [];
 
 
-export function CheckExistingCard(){
+export function checkExistingCard(){
     if(localStorage.getItem('winNumbers') === null){
         return
     } else {
         winNumbers = JSON.parse(localStorage.getItem('winNumbers'));
         gambleNumbers = JSON.parse(localStorage.getItem('gambleNumbers'));
-    };
+    }
 };
 
 export function createNewCard() {
@@ -26,14 +26,12 @@ export function saveNumbersToLocalStorage(){
     localStorage.setItem('gambleNumbers', JSON.stringify(gambleNumbers));
 };
 
-// create WinNumbers
-
 function createNewWinNumbers() {
     winNumbers = [];
     for(let i = 0; i < 4; i++){
         let winNumber = getRandomWinNumber(19);
 
-        if(winNumbers.some(e => e.int === winNumber.int)){
+        if(winNumbers.some(win => win.int === winNumber.int)){
             i--;
             continue;
         }
@@ -46,22 +44,20 @@ function createNewWinNumbers() {
     };
 };
 
-// create gambleNumbers
-
 function createNewGambleNumbers() {
     gambleNumbers = [];
     
     for(let i = 0; i < 12; i++){
-        let gambleNumber = getRandomWinNumber(20.44); // 20.1 nehmen ? damit win nicht immer wieder 3x vorkommt ?
+        let gambleNumber = getRandomWinNumber(20.44);
         let win;
         
-        // überprüfen ob Zahl schon vorhanden, ausser id:20(WIN) - wenn vorhanden dann nochmals neu "generieren"
-        if(gambleNumber !== gameNumbers[20] && gambleNumbers.some(e => e.int === gambleNumber.int)){
+        // check if number already excists exept 20(WIN) - if number already excists -> get another number
+        if(gambleNumber !== gameNumbers[20] && gambleNumbers.some(game => game.int === gambleNumber.int)){
             i--;
             continue;
         }
         
-        // wenn id20(WIN) muss immer wins[9] verwendet werden, Jahresgewinn !
+        // if id = 20(WIN) it always shows wins[9]
         if(gambleNumber === gameNumbers[20]){
             {
                 gambleNumber.int = gambleNumber.string.toUpperCase();
@@ -69,7 +65,7 @@ function createNewGambleNumbers() {
             }
         } else {
             {
-                win = getRandomPrice(wins.length - 2); // damit Win nicht dabei ist
+                win = getRandomPrice(wins.length - 2); // so that wins[9] never gets picked
             }
         };
         
@@ -85,15 +81,13 @@ function createNewGambleNumbers() {
     };
 };
 
-// getRandomNumber
-
 function getRandomWinNumber(max){
-    let rn = Math.round(Math.random() * max);
-    return gameNumbers[rn];
+    let randomId = Math.round(Math.random() * max);
+    return gameNumbers[randomId];
 };
 
 function getRandomPrice(max) {
-    let rn = Math.round(Math.pow(Math.random(), 2.5) * max);
-    return wins[rn];
+    let randomId = Math.round(Math.pow(Math.random(), 2.5) * max);
+    return wins[randomId];
 };
 
