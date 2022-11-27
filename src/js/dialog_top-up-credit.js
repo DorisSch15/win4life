@@ -15,7 +15,7 @@ export function showTopUpDialog(){
             <i class="fa-regular fa-thumbs-up"></i>
             <i class="fa-solid fa-coins"></i>
         </div>
-        <p class="top-up-credit__text">So wies aussieht, war das Glück nicht auf deiner Seite. Dein aktuelles Guthaben beträgt:.<br><br>Leider ist dein Guthaben unter die Kosten eines neuen Gewinnloses gefallen. Lade dein Guthaben wieder auf</p>
+        <p class="top-up-credit__text">So wies aussieht, war das Glück nicht auf deiner Seite. Dein aktuelles Guthaben beträgt: ${clientData.amount} ${clientData.currency}.<br><br>Leider ist dein Guthaben unter die Kosten eines neuen Gewinnloses gefallen. Lade dein Guthaben wieder auf</p>
         <form method="dialog" class="top-up-credit__add-money">
             <div class="add-money">
                 <div class="add-money__new-credit">
@@ -65,7 +65,7 @@ function closeTopUpDialog(){
     clientData.amount += parseInt(newCredit);
 
     renderUser();
-    buyCard();
+    buyCard(true);
 
     topUpCredit.close();
     header.removeChild(topUpCredit);

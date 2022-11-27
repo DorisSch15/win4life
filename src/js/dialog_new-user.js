@@ -86,7 +86,7 @@ export function closeUserSetUpDialog(){
         gameSection.classList.remove('game-section__table--inactive');
         
         renderUser();
-        buyCard();
+        buyCard(false);
 
         firstVisit.close();
         header.removeChild(firstVisit);

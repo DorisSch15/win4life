@@ -41,10 +41,12 @@ function saveClientDataToLocalStorage(){
 };
 
 let btnBuy = document.querySelector('.user__buyone-btn');
-btnBuy.addEventListener('click', buyCard);
+btnBuy.addEventListener('click', () => {
+    buyCard(false);
+});
 
-export function buyCard(){
-    if(winNumbers.some(e => e.scratched === false) || gambleNumbers.some(e => e.scratched === false)){
+export function buyCard(forceNewCard){
+    if((winNumbers.some(e => e.scratched === false) || gambleNumbers.some(e => e.scratched === false)) && forceNewCard === false){
         showNewCardForRealDialog();
     } else {
         if(clientData.amount < costCard){

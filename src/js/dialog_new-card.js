@@ -1,5 +1,5 @@
 import { header, costCard, renderCard } from './index.js';
-import { clientData, renderUser, buyCard } from './user.js';
+import { clientData, renderUser } from './user.js';
 import { createNewCard } from './game.js';
 import { showTopUpDialog } from './dialog_top-up-credit.js';
 
