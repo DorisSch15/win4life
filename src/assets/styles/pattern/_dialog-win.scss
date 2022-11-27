@@ -1,7 +1,7 @@
 .win-dialog,
 .triple-win {
     width: 100%;
-    top: 20%;
+    top: 5%;
     margin: 0 auto;
     padding: 30px;
     
@@ -15,8 +15,17 @@
     color: $light;
     
     @include media("tablet") {
+        top: 20%;
         width: 65%;
     };
+
+    @include media("tablet-landscape") {
+        top: 10%;  
+    };
+    
+    @include media("desktop") {
+        top: 25%;
+    };  
 
     &::backdrop {
         background: rgb(0 0 0 / .8);

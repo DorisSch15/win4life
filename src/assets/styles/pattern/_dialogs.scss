@@ -6,7 +6,7 @@
 .top-up-credit {
     width: 100%;
     height: max-content;
-    top: 20%;
+    top: 5%;
     margin: 0 auto;
     padding: 10px 15px;
     
@@ -16,11 +16,17 @@
     border: 1px solid $light;
     
     @include media("tablet") {
-        width: 60%;
+        top: 20%;
+        width: 65%;
         padding: 30px;
+    };
+
+    @include media("tablet-landscape") {
+        top: 10%;  
     };
     
     @include media("desktop") {
+        top: 25%;
         width: 40%;
     };  
 
@@ -126,18 +132,6 @@
                 @include btn(45%);
             };
         };
-    };
-};
-
-.new-user {
-    top: 3%;
-    
-    @include media("tablet") {
-        top: 20%;  
-    };
-
-    @include media("tablet-landscape") {
-        top: 10%;  
     };
 };
 
