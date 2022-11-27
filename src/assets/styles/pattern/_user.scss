@@ -2,7 +2,7 @@
 
 h2 {
     font-size: 1em;
-}
+};
 
 .user {
     width: 95vw;
@@ -17,21 +17,23 @@ h2 {
     @include titleSize(1.5rem, 700); 
     
     @include media("tablet") {
+        padding: 15px;
+
         display: grid;
         grid-template-columns: repeat(2, minmax(40vw, 1fr));
         grid-template-rows: repeat(2, minmax(60px, 1fr));
         grid-template-areas:
-        "welcome win"
-        "btn-buy btn-payout"
+            "welcome win"
+            "btn-buy btn-payout"
         ;
         gap: 15px;
-        padding: 15px;
         
         @include titleSize(2rem, 700);
     };
     
     @include media("desktop") {
         width: 90vw;
+
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -88,6 +90,7 @@ h2 {
     &__payout-btn {
         @include btn(100%);
         justify-content: stretch;
+        
         @include media("desktop") {
             @include btn(90%);
         };

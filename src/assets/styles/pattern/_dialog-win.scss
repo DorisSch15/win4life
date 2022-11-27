@@ -2,25 +2,25 @@
 .triple-win {
     width: 100%;
     top: 20%;
-    
     margin: 0 auto;
     padding: 30px;
-    border: 1px solid $light;
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
+    border: 1px solid $light;
+    
     color: $light;
     
-    @include media("desktop") {
-        width: 60%;
+    @include media("tablet") {
+        width: 65%;
     };
 
     &::backdrop {
         background: rgb(0 0 0 / .8);
-    }
+    };
 
     &__title {
         margin-bottom: 30px;
@@ -50,11 +50,6 @@
     &__btn {
         @include btn(100%);
 
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-        padding: 0;
-
         @include media("desktop") {
             @include btn(50%);
         }; 
@@ -81,17 +76,17 @@
     color: black;
     
     &__hack {
-        padding: 30px;
+        position: relative;
+        isolation: isolate;
 
-        border: 2px solid $light;
+        padding: 30px;
 
         display: flex;
         flex-direction: column;
         align-items: center;
-
-        position: relative;
-        isolation: isolate;
-    };
+        
+        border: 2px solid $light;
+    };    
 
     &__hack::after {
         position: absolute;
